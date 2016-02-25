@@ -8,7 +8,6 @@
 <meta name="description" content="">
 <meta charset="utf-8">
 <link href="/assets/login/css/login.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="/assets/login/js/login.js"></script>
 <script type="text/javascript" src="/assets/login/js/jquery.min.js"></script>
 </head>
 <body ng-app="loginApp">

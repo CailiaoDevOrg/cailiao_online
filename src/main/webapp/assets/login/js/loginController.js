@@ -7,7 +7,7 @@ loginApp.controller('loginController', function ($scope, $http) {
             console.log('登录成功');  
         }).error(function (data,status) {  
             console.log('登录失败');  
-        });  */
-        console.log($scope.User);         
+        });        */
+        console.log('登录成功');
     }  
 });  
