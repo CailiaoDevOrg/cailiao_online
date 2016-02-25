@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TestController {
 
-    @RequestMapping("/goto/{url}.html")
+    @RequestMapping("/{url}.html")
     public String gotoUrl(@PathVariable String url) {
         if (StringUtils.isNotBlank(url)) {
             return url;
