@@ -10,6 +10,14 @@ scotchApp.controller('mainController', function($scope) {
 scotchApp.config(function($routeProvider){
 $routeProvider
 //route for the home page
+.when('/',{
+	templateUrl:'/jsp/pages/index.html',
+	controller:'mainController'
+})
+.when('/onlinetest',{
+	templateUrl:'/jsp/pages/onlinetestangular.html',
+	controller:'mainController'
+})
 .when('/home',{
 	templateUrl:'/jsp/pages/index.html',
 	controller:'mainController'

@@ -31,6 +31,7 @@
 	 	 	.navstyle a:hover{color: #fff; background: #CCCCFF; text-decoration: none; border-radius: 8px;}
 	 	 	.logintest{ margin-top: 20px; margin-right: 30px;}
 	 	 	.logintest a:hover{ border-radius: 0; background: none;}
+	 	 	.small_input{ width: 80px;}
 	 	 </style>
 	</head>
 	<body ng-controller="mainController">
