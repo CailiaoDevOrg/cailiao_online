@@ -273,7 +273,7 @@
                   </div><!--box end-->
               </div>
               <!--废气排放结束-->
-              <div class="equipment">
+              <div class="equipment" id="equipment">
                 <div class="box">
                         <div class="box-header with-border">
                           <h3 class="box-title"><span style="border-bottom:2px solid #FFE7B6; padding-bottom:5px;">主要设备</span></h3>
@@ -294,8 +294,7 @@
                               <td>φ<input ng-model="p.shengliaomo_model_0"></td>
                               <td><input ng-model="p.shengliaomo_number"></td>
                               <td>
-                                <input type="button" value="增加" id="addshengliaomo" ng-click="addshengliaomo()">
-                                <input type="button" value="删除" ng-click="deleteequipment()">
+                                <input type="button" value="增加" id="addshengliaomo" class="btn btn-info" ng-click="addshengliaomo()">
                               </td>
                               </tr>
                               <tr class="shuinimo">
@@ -305,7 +304,6 @@
                                 <td><input ng-model="p.shuinimo_number"></td>
                                 <td>
                                   <input type="button" value="增加" id="addshuinimo" ng-click="addshuinimo()">
-                                  <input type="button" value="删除">
                                 </td>
                               </tr> 
                               <tr class="yao_type">

@@ -18,7 +18,9 @@ scotchApp.controller('formController',function($scope,$http){
 		var shengliaomolen=$(".shengliaomo").length;
 		var count=parseInt(shengliaomolen)-1;
 		var shengliaomoIndex=parseInt(shengliaomolen)+1;
-		var add_tr=['<tr class="shengliaomo">',
+		var add_tr=['<tr class="shengliaomo need_recode_',
+							shengliaomoIndex,
+							  '">',
                               '<td>生料磨</td>',
                               '<td><input ng-model="p.shengliaomo_way_',
                               shengliaomoIndex,
@@ -30,13 +32,30 @@ scotchApp.controller('formController',function($scope,$http){
                               shengliaomoIndex,
                               '"></td>',
                               '<td>',
-                                '<input type="button" value="删除" onclick="deleteequipment()">',
+                                '<input type="button" value="删除" class="btn btn-warning" ng-click="deleteequipment()">',
                               '</td></tr>'].join('');
         $(".shengliaomo").eq(count).after(add_tr);	
+        //var pre_code=angular.element(".need_recode_"+shengliaomoIndex).html();
+        /*var pre_code=add_tr;
+        console.log(pre_code);
+        angular.element("#equipment").injector().invoke(function($compile){
+        	var scope=angular.element("#equipment").scope();
+        	$compile(pre_code)(scope);
+        	console.log("test ok");
+        	$(".shengliaomo").eq(count).after(pre_code);
+        	console.log($scope.obj);
+
+        });*/
+        
+       
 	}
+
+	
 	$scope.deleteequipment=function(){
 		console.log("xinhaolei");
 	}
+
+
 });
 
 function deleteequipment(){
