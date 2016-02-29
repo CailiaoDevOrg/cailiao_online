@@ -21,6 +21,7 @@
 	 	 <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-table.css">
 	 	 <link rel="stylesheet" type="text/css" href="/assets/fillin/css/record.css">
 	 	 <link href="/assets/home/main.css" rel="stylesheet" media="screen, print">
+	 	 <link rel="stylesheet" type="text/css" href="/assets/inquire/css/tab.css">
 		<!--  <link href="/static/css/patternfly.min.css" rel="stylesheet" media="screen, print"> -->
 		  
 	 	 <style type="text/css">
@@ -56,6 +57,7 @@
 	  	 <script  type="text/javascript" src="/assets/global/homeroute.js"></script>
 	    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
 	    <script type="text/javascript" src="/assets/fillin/js/formController.js"></script>
+	    <script type="text/javascript" src="/assets/inquire/js/inquiredataController.js"></script>
 	    <script src="/assets/home/jquery.dataTables.js"></script>
 		  <script src="/assets/home/patternfly.min.js"></script>
 	</body>

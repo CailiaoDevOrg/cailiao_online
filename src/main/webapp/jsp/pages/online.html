@@ -1,23 +1,7 @@
 <div id="#record_content">
 	<div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <!-- <section class="content-header col-md-12">
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
-            <li class="active">线上填写</li>
-          </ol>
-        </section> -->
-
         <!-- Main content -->
-        <section class="content">
-          <!-- Small boxes (Stat box) -->
-          <!-- <div class="col-md-2">
-            <button class="btn btn-block btn-info">线上填写</button> 
-          </div>
-          <div class="col-md-2">
-            <button class="btn btn-block btn-primary" id="downdoc" onClick="downdoc();">下载录入</button> 
-          </div> -->
-                             
+        <section class="content">                             
           <!-- Main row -->
           <div class="row mainrow">
             <h1 class="online_h1">水泥调查信息简表</h1>
@@ -69,22 +53,23 @@
                               <th>原料5#</th>
                             </tr>
                             <tr>
-                            <td class="col-xs-2">熟料名称</td>
-                            <td><input ng-model="p.clinker1name"></td>
-                            <td><input ng-model="p.clinker2name"></td>
-                            <td><input ng-model="p.clinker3name"></td>
-                            <td><input ng-model="p.clinker4name"></td>
-                            <td><input ng-model="p.clinker5name"></td>  
-                          </tr>
-                          <tr>
-                            <td class="col-md-2">消耗情况，万吨/年</td>
-                            <td><input ng-model="p.clinker1consume"></td>
-                            <td><input ng-model="p.clinker2consume"></td>
-                            <td><input ng-model="p.clinker3consume"></td>
-                            <td><input ng-model="p.clinker4consume"></td>
-                            <td><input ng-model="p.clinker5consume"></td>  
-                          </tr> 
-                        </tbody></table>
+                              <td class="col-xs-2">熟料名称</td>
+                              <td><input ng-model="p.clinker1name"></td>
+                              <td><input ng-model="p.clinker2name"></td>
+                              <td><input ng-model="p.clinker3name"></td>
+                              <td><input ng-model="p.clinker4name"></td>
+                              <td><input ng-model="p.clinker5name"></td>  
+                            </tr>
+                            <tr>
+                              <td class="col-md-2">消耗情况，万吨/年</td>
+                              <td><input ng-model="p.clinker1consume"></td>
+                              <td><input ng-model="p.clinker2consume"></td>
+                              <td><input ng-model="p.clinker3consume"></td>
+                              <td><input ng-model="p.clinker4consume"></td>
+                              <td><input ng-model="p.clinker5consume"></td>  
+                            </tr> 
+                          </tbody>
+                        </table>
                       </div><!-- /.box-body -->
                     </div>
                     <!--熟料原材料结束-->
@@ -118,48 +103,51 @@
                         </div><!-- /.box-body -->
                       </div>
                     </div>
-                <div class="cement">
-                    <div class="box">
-                        <div class="box-header with-border">
-                          <h3 class="box-title"><span style="border-bottom:2px solid #F8CF91; padding-bottom:5px;">水泥制成用原材料(含替代原料)</span></h3>
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                          <table class="table table-bordered">
-                            <tbody>
-                              <tr>
-                                <th> </th>
-                                <th>原料1#</th>
-                                <th>原料2#</th>
-                                <th>原料3#</th>
-                                <th>原料4#</th>
-                                <th>原料5#</th>
-                              </tr>
-                              <tr>
-                              <td class="col-md-2">原材料名称</td>
-                              <td><input ng-model="p.cement1name"></td>
-                              <td><input ng-model="p.cement2name"></td>
-                              <td><input ng-model="p.cement3name"></td>
-                              <td><input ng-model="p.cement4name"></td>
-                              <td><input ng-model="p.cement5name"></td>
-                              </tr>
-                            <tr>
-                              <td class="col-md-2">消耗情况，万吨/年</td>
-                              <td><input ng-model="p.cement1consume"></td>
-                              <td><input ng-model="p.cement2consume"></td>
-                              <td><input ng-model="p.cement3consume"></td>
-                              <td><input ng-model="p.cement4consume"></td>
-                              <td><input ng-model="p.cement5consume"></td>
-                            </tr> 
-                          </tbody></table>
-                        </div><!-- /.box-body -->
-                    <div class="production">
-                      <div class="input-group">
-                        <span>熟料产量(万吨/年)</span><input type="text" ng-model="p.productionclinker">
-                        <span>水泥产量(万吨/年)</span><input type="text" ng-model="p.productioncement">
-                      </div>
-                  </div>
+                    <div class="cement">
+                      <div class="box">
+                          <div class="box-header with-border">
+                              <h3 class="box-title"><span style="border-bottom:2px solid #F8CF91; padding-bottom:5px;">水泥制成用原材料(含替代原料)</span>
+                              </h3>
+                          </div><!-- /.box-header -->
+                          <div class="box-body">
+                            <table class="table table-bordered">
+                              <tbody>
+                                <tr>
+                                  <th> </th>
+                                  <th>原料1#</th>
+                                  <th>原料2#</th>
+                                  <th>原料3#</th>
+                                  <th>原料4#</th>
+                                  <th>原料5#</th>
+                                </tr>
+                                <tr>
+                                <td class="col-md-2">原材料名称</td>
+                                <td><input ng-model="p.cement1name"></td>
+                                <td><input ng-model="p.cement2name"></td>
+                                <td><input ng-model="p.cement3name"></td>
+                                <td><input ng-model="p.cement4name"></td>
+                                <td><input ng-model="p.cement5name"></td>
+                                </tr>
+                                <tr>
+                                  <td class="col-md-2">消耗情况，万吨/年</td>
+                                  <td><input ng-model="p.cement1consume"></td>
+                                  <td><input ng-model="p.cement2consume"></td>
+                                  <td><input ng-model="p.cement3consume"></td>
+                                  <td><input ng-model="p.cement4consume"></td>
+                                  <td><input ng-model="p.cement5consume"></td>
+                                </tr> 
+                              </tbody>
+                           </table>
+                          </div><!-- /.box-body -->
+                          <div class="production">
+                            <div class="input-group">
+                              <span>熟料产量(万吨/年)</span><input type="text" ng-model="p.productionclinker">
+                              <span>水泥产量(万吨/年)</span><input type="text" ng-model="p.productioncement">
+                            </div>
+                          </div>
+                       </div>
+                    </div>
                 </div>
-                
               </div>
               <!--资源消耗结束-->
               <div class="energy">
@@ -192,7 +180,7 @@
                             </tr> 
                           </tbody></table>
                         </div><!-- /.box-body -->
-                      </div>
+                </div>
               </div>
               <!--能源消耗结束-->
               <div class="waste_gas">
@@ -316,12 +304,12 @@
                             </tbody>
                           </table>
                         </div><!-- /.box-body -->
-                    </div>
+                </div>
               </div>
               <!--主要设备结束-->
               <input type="submit" value="提 交" class="btn btn-success btn-lg" id="submit" ng-click="submitform()">
             </form>
           </div>
         </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
+  </div><!-- /.content-wrapper -->
 </div>

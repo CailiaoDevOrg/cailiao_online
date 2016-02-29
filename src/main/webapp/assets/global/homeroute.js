@@ -14,10 +14,10 @@ $routeProvider
 	templateUrl:'/jsp/pages/index.html',
 	controller:'mainController'
 })
-.when('/onlinetest',{
+/*.when('/onlinetest',{
 	templateUrl:'/jsp/pages/onlinetestangular.html',
 	controller:'mainController'
-})
+})*/
 .when('/home',{
 	templateUrl:'/jsp/pages/index.html',
 	controller:'mainController'
@@ -59,5 +59,5 @@ scotchApp.controller('uploadController',function($scope){
 	$scope.message='Contact us! This is a contact us page.'
 });
 scotchApp.controller('inquiredataController',function($scope){
-	$scope.message='Contact us! This is a contact us page.'
-})
+	$scope.message='.'
+});
