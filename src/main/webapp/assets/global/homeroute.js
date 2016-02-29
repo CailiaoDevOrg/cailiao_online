@@ -7,17 +7,13 @@ scotchApp.controller('mainController', function($scope) {
     // create a message to display in our view
     $scope.message = 'Everyone come and see how good I look!';
 });
-scotchApp.config(function($routeProvider){
+/*scotchApp.config(function($routeProvider){
 $routeProvider
 //route for the home page
 .when('/',{
 	templateUrl:'/jsp/pages/index.html',
 	controller:'mainController'
 })
-/*.when('/onlinetest',{
-	templateUrl:'/jsp/pages/onlinetestangular.html',
-	controller:'mainController'
-})*/
 .when('/home',{
 	templateUrl:'/jsp/pages/index.html',
 	controller:'mainController'
@@ -40,24 +36,6 @@ $routeProvider
 	templateUrl:'/jsp/pages/inquire.html',
 	controller:'inquiredataController'
 })
-});
+});*/
 
 // create the controller and inject Angular's $scope
-scotchApp.controller('mainController', function($scope) {
-
-    // create a message to display in our view
-    $scope.message = 'Everyone come and see how good I look!';
-});
-scotchApp.controller('onlineController',function($scope){
-	$scope.message="I am an about page."
-});
-
-scotchApp.controller('offlineController',function($scope){
-	$scope.message='Contact us! This is a contact us page.'
-});
-scotchApp.controller('uploadController',function($scope){
-	$scope.message='Contact us! This is a contact us page.'
-});
-scotchApp.controller('inquiredataController',function($scope){
-	$scope.message='.'
-});
