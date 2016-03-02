@@ -15,13 +15,15 @@ onlineApp.controller('onlineController',function($scope,$http){
             console.log('提交失败');  
         });        
 	};
+  var shengliaomoIndex=0;//生料磨长度初始为1
+  var shuinimoIndex=0;//水泥磨长度初始为1
 	$scope.addshengliaomo=function(){
 		var shengliaomolen=$(".shengliaomo").length;
 		var count=parseInt(shengliaomolen)-1;
-		var shengliaomoIndex=parseInt(shengliaomolen)+1;
-		var add_tr=['<tr class="shengliaomo need_recode_',
-							shengliaomoIndex,
-							  '">',
+	  shengliaomoIndex=shengliaomoIndex+1;
+		var add_tr=['<tr class="shengliaomo_',
+                              shengliaomoIndex,
+                              '">',
                               '<td>生料磨</td>',
                               '<td><input ng-model="p.shengliaomo_way_',
                               shengliaomoIndex,
@@ -33,10 +35,35 @@ onlineApp.controller('onlineController',function($scope,$http){
                               shengliaomoIndex,
                               '"></td>',
                               '<td>',
-                                '<input type="button" value="删除" class="btn btn-warning" ng-click="deleteequipment()">',
+                                '<input type="button" value="删除" class="btn btn-warning" onclick="deleteshengliaomo(',
+                                  shengliaomoIndex,
+                                  ')">',
                               '</td></tr>'].join('');
         $(".shengliaomo").eq(count).after(add_tr);
 	}
+
+  $scope.addshuinimo=function(){
+    var shuinimolen=$(".shuinimo").length;
+    var count=parseInt(shuinimolen)-1;
+    shuinimoIndex=shuinimoIndex+1;
+    var add_tr=['<tr class="shuinimo_',
+                              shuinimoIndex,
+                              '">',
+                              '<td>水泥磨</td>',
+                              '<td><input></td>',
+                              '<td>φ<input ng-model="p.shuinimo_model_',
+                              shuinimoIndex,
+                              '"></td>',
+                              '<td><input ng-model="p.shuinimo_number_',
+                              shuinimoIndex,
+                              '"></td>',
+                              '<td>',
+                                '<input type="button" value="删除" class="btn btn-warning" onclick="deleteshuinimo(',
+                                  shuinimoIndex,
+                                  ')">',
+                              '</td></tr>'].join('');
+        $(".shuinimo").eq(count).after(add_tr);
+  }
 	
 	$scope.deleteequipment=function(){
 		console.log("xinhaolei");
@@ -61,10 +88,15 @@ onlineApp.controller('onlineController',function($scope,$http){
   }
 });
 
-function deleteequipment(){
-	var shengliaomolen=$(".shengliaomo").length;
-	console.log(shengliaomolen);
-	}
+    
+  function deleteshengliaomo(n){//主要设备的删除
+    var m=parseInt(n);
+    $(".shengliaomo_"+n).remove();
+  };
+  function deleteshuinimo(n){//主要设备的删除
+    var m=parseInt(n);
+    $(".shuinimo_"+n).remove();
+  };
 
 $(function(){
   $("#online_table").bootstrapTable({

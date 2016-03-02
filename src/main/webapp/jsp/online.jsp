@@ -36,7 +36,16 @@
          </style>
     </head>
     <body ng-controller="onlineController">
-        <div ng-include="'/jsp/global/head.html'"></div>
+        <div id="nav" >
+          <ul class="navstyle">
+             <li class="active"><a href="/jsp/home.jsp">首页</a></li>
+             <li><a href="/jsp/online.jsp">在线填写</a></li>
+             <li><a href="/jsp/offline.jsp">下载填写</a></li>
+             <li><a href="/jsp/upload.jsp">上传文档</a></li>
+             <li><a href="/jsp/inquiredata.jsp">查询</a></li>
+             <div class="pull-right logintest"><a href="/jsp/login.jsp">登录</a></div>
+          </ul>
+        </div>
         <div id="content">
             <div id="scanlist" class="pull-left" style="width:100%;">
                 <input type="button" value="已填列表" class="btn btn-info" ng-click="showlist()">
@@ -47,14 +56,6 @@
                 </div>
                 <div id="tablelist">
                   <table id="online_table">
-                        <!-- <thead>
-                            <tr>
-                                <th data-field="Name" class="tdhidden">姓名</th>
-                                <th data-field="City">城市</th>
-                                <th data-field="Country">国家</th>
-                                
-                            </tr>
-                        </thead> -->
                   </table>
                 </div>
             </div>
@@ -70,7 +71,7 @@
                               <div class="pre_set form-inline">
                                 <div class="form-group">
                                   <label for="pre_set_year">年份</label>
-                                  <select ng-model="p.year" id="pre_set_year" required>
+                                  <select ng-model="p.year" id="pre_set_year" class="form-control">
                                   <!--填表年份-->
                                   <option value ="2016">2016</option>
                                   <option value ="2015">2015</option>
@@ -351,7 +352,7 @@
                                                     <td>φ<input ng-model="p.shuinimo_model_1" class="shuinimo_model"></td>
                                                     <td><input ng-model="p.shuinimo_number"></td>
                                                     <td>
-                                                      <input type="button" value="增加" id="addshuinimo" ng-click="addshuinimo()">
+                                                      <input type="button" value="增加" id="addshuinimo" class="btn btn-info" ng-click="addshuinimo()">
                                                     </td>
                                                   </tr> 
                                                   <tr class="yao_type">
