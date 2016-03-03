@@ -14,16 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class QuestionnaireController {
 
-    @Autowired
-    private QuestionnaireBaseService questionnaireBaseService;
+	/*
+   /* @Autowired
+    private QuestionnaireBaseService questionnaireBaseService;*/
 
-    @RequestMapping("/{id}.html")
+	/**@RequestMapping("/{id}.html")
     public String getItemById(@PathVariable int id) {
-        Questionnaire questionnaire = this.questionnaireBaseService.getQuestionnaireById(id);
+       Questionnaire questionnaire = this.questionnaireBaseService.getQuestionnaireById(id);
         if (questionnaire == null) {
             return null;
         }
         return JSON.toJSONString(questionnaire);
-    }
+    	// return null;
+    }*/
 
 }
