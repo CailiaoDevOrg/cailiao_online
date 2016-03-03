@@ -8,3 +8,7 @@
 .yao_type input{ width: 50px;}
 #submit{margin-left: 90%;}
 .online_h1{ border-bottom: 1px solid #C8B89F; padding: 8px 0; text-align: center;}
+/******inquire*****/
+.ablock{display:inline-block; padding-bottom:5px; margin-left:14px; text-decoration:none; margin-bottom: 10px;}
+a.ablock:hover{text-decoration: none;}
+a:focus{ text-decoration: none;}

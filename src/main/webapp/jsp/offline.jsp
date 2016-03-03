@@ -4,7 +4,7 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";  
 %>
 <!DOCTYPE html>
-<html lang="zh-CN" ng-app="inquireApp">
+<html lang="zh-CN" ng-app="offlineApp">
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,25 +34,30 @@
 	 	 	.logintest a:hover{ border-radius: 0; background: none;}
 	 	 	.small_input{ width: 80px;}
 	 	 </style>
-	</head>
-	<body ng-controller="inquiredataController">
+	</head>    
+	<body ng-controller="offlineController">
 		<div id="nav" >
-			<ul class="navstyle">
-			   <li class="active"><a href="/jsp/home.jsp">首页</a></li>
-			   <li><a href="/jsp/online.jsp">在线填写</a></li>
-			   <li><a href="/jsp/offline.jsp">下载填写</a></li>
-			   <li><a href="/jsp/upload.jsp">上传文档</a></li>
-			   <li><a href="/jsp/inquiredata.jsp">查询</a></li>
-			   <div class="pull-right logintest"><a href="/jsp/login.jsp">登录</a></div>
-			</ul>
-		</div>
-		
-		<div id="content">
-			<div ng-include="'/jsp/pages/inquire.html'"></div>
+		    <ul class="navstyle">
+		       <li class="active"><a href="/jsp/home.jsp">首页</a></li>
+		       <li><a href="/jsp/online.jsp">在线填写</a></li>
+		       <li><a href="/jsp/offline.jsp">下载填写</a></li>
+		       <li><a href="/jsp/upload.jsp">上传文档</a></li>
+		       <li><a href="/jsp/inquiredata.jsp">查询</a></li>
+		       <div class="pull-right logintest"><a href="/jsp/login.jsp">登录</a></div>
+		    </ul>
+	    </div>
+	    <div id="content">
+			<div id="offline" style="margin-top:15px;" class="col-md-12">
+				<div id="down_doc">
+					<ul>
+						<li><a href="/assets/doc/cement_info_questionnaire">2015年水泥企业信息调研表</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<script type="text/javascript" src="/assets/jquery/jquery.min.js"></script>
 	  	 <script type="text/javascript" src="/assets/angularjs/angular.min.js"></script>
-	    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
-	    <script type="text/javascript" src="/assets/inquire/js/inquiredataController.js"></script>
+	    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>	
+	    <script type="text/javascript" src="/assets/fillin/js/offlineController.js"></script>
 	</body>
 </html>
