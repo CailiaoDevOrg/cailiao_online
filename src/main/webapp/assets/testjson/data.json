@@ -2,89 +2,64 @@
 "data":
 [
 {
-"Name" : "Alfreds Futterkiste",
-"City" : "Berlin",
-"Country" : "Germany"
+"productline" : "1生产线",
+"submittime" : "2016-3-3",
+"option1" : "edible",
+"option2":"pass"
 },
 {
-"Name" : "Berglunds snabbköp",
-"City" : "Luleå",
-"Country" : "Sweden"
+"productline" : "2生产线",
+"submittime" : "2016-3-3",
+"option1" : "edible",
+"option2":"pass"
 },
 {
-"Name" : "Centro comercial Moctezuma",
-"City" : "México D.F.",
-"Country" : "Mexico"
+"productline" : "3生产线",
+"submittime" : "2016-3-3",
+"option1" : "edible",
+"option2":"pass"
 },
 {
-"Name" : "Ernst Handel",
-"City" : "Graz",
-"Country" : "Austria"
+"productline" : "4生产线",
+"submittime" : "2016-3-3",
+"option1" : "edible",
+"option2":"pass"
 },
 {
-"Name" : "FISSA Fabrica Inter. Salchichas S.A.",
-"City" : "Madrid",
-"Country" : "Spain"
+"productline" : "5生产线",
+"submittime" : "2016-3-3",
+"option1" : "edible",
+"option2":"pass"
 },
 {
-"Name" : "Galería del gastrónomo",
-"City" : "Barcelona",
-"Country" : "Spain"
+"productline" : "6生产线",
+"submittime" : "2016-3-3",
+"option1" : "edible",
+"option2":"pass"
 },
 {
-"Name" : "Island Trading",
-"City" : "Cowes",
-"Country" : "UK"
+"productline" : "7生产线",
+"submittime" : "2016-3-3",
+"option1" : "edible",
+"option2":"pass"
 },
 {
-"Name" : "Königlich Essen",
-"City" : "Brandenburg",
-"Country" : "Germany"
+"productline" : "8生产线",
+"submittime" : "2016-3-3",
+"option1" : "edible",
+"option2":"pass"
 },
 {
-"Name" : "Laughing Bacchus Wine Cellars",
-"City" : "Vancouver",
-"Country" : "Canada"
+"productline" : "9生产线",
+"submittime" : "2016-3-3",
+"option1" : "edible",
+"option2":"pass"
 },
 {
-"Name" : "Magazzini Alimentari Riuniti",
-"City" : "Bergamo",
-"Country" : "Italy"
-},
-{
-"Name" : "North/South",
-"City" : "London",
-"Country" : "UK"
-},
-{
-"Name" : "Paris spécialités",
-"City" : "Paris",
-"Country" : "France"
-},
-{
-"Name" : "Rattlesnake Canyon Grocery",
-"City" : "Albuquerque",
-"Country" : "USA"
-},
-{
-"Name" : "Simons bistro",
-"City" : "København",
-"Country" : "Denmark"
-},
-{
-"Name" : "The Big Cheese",
-"City" : "Portland",
-"Country" : "USA"
-},
-{
-"Name" : "Vaffeljernet",
-"City" : "Århus",
-"Country" : "Denmark"
-},
-{
-"Name" : "Wolski Zajazd",
-"City" : "Warszawa",
-"Country" : "Poland"
+"productline" : "10生产线",
+"submittime" : "2016-3-3",
+"option1" : "edible",
+"option2":"pass"
 }
 ]
 }

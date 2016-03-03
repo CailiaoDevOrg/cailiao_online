@@ -22,6 +22,7 @@
          <link rel="stylesheet" type="text/css" href="/assets/fillin/css/record.css">
          <link href="/assets/home/main.css" rel="stylesheet" media="screen, print">
          <link rel="stylesheet" type="text/css" href="/assets/inquire/css/tab.css">
+         <link rel="stylesheet" type="text/css" href="/assets/bootstrap/fonts/glyphicons-halflings-regular.woff">
         <!--  <link href="/static/css/patternfly.min.css" rel="stylesheet" media="screen, print"> -->
           
          <style type="text/css">
@@ -55,7 +56,8 @@
                     <input type="button" value="添加生产线" class="btn btn-info" ng-click="showrecord()">
                 </div>
                 <div id="tablelist">
-                  <table id="online_table">
+                  <table id="online_table" class="table-bordered">
+                    
                   </table>
                 </div>
             </div>
@@ -377,12 +379,9 @@
         </div>
         <script type="text/javascript" src="/assets/jquery/jquery.min.js"></script>
          <script type="text/javascript" src="/assets/angularjs/angular.min.js"></script>
-         <!-- <script type="text/javascript" src="/assets/angularjs/angular-route.min.js"></script> -->
         <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/assets/fillin/js/onlineController.js"></script>
         <script src="/assets/bootstrap/js/bootstrap-table.js"></script> 
          <script src="/assets/bootstrap/js/bootstrap-table-zh-CN.js"></script>
-        <script src="/assets/home/jquery.dataTables.js"></script>
-        <script src="/assets/home/patternfly.min.js"></script>
     </body>
 </html>
