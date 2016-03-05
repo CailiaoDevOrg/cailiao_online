@@ -22,7 +22,6 @@
          <link rel="stylesheet" type="text/css" href="/assets/fillin/css/record.css">
          <link href="/assets/home/main.css" rel="stylesheet" media="screen, print">
          <link rel="stylesheet" type="text/css" href="/assets/inquire/css/tab.css">
-         <link rel="stylesheet" type="text/css" href="/assets/bootstrap/fonts/glyphicons-halflings-regular.woff">
         <!--  <link href="/static/css/patternfly.min.css" rel="stylesheet" media="screen, print"> -->
           
          <style type="text/css">
@@ -72,8 +71,8 @@
                             <form id="cement_info">
                               <div class="pre_set form-inline">
                                 <div class="form-group">
-                                  <label for="pre_set_year">年份</label>
-                                  <select ng-model="p.year" id="pre_set_year" class="form-control">
+                                  <label for="pre_set_year">年份<span style="color:red">*</span></label>
+                                  <select ng-model="publicdata.year" id="pre_set_year" class="form-control">
                                   <!--填表年份-->
                                   <option value ="2016">2016</option>
                                   <option value ="2015">2015</option>
@@ -84,16 +83,16 @@
                                 </select>
                                 </div>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="form-group">
-                                  <label for="pre_set_tons">吨位</label>
-                                  <input type="text" id="pre_set_tons" ng-model="p.tons" class="small_input" required>
+                                  <label for="pre_set_tons">吨位<span style="color:red">*</span></label>
+                                  <input type="text" id="pre_set_tons" ng-model="publicdata.tons" class="small_input" >
                                 </div>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="form-group">
-                                  <label for="product_company_name">水泥厂名称</label>
-                                  <input type="text" id="product_company_name" ng-model="p.product_company_name" required>
+                                  <label for="product_company_name">水泥厂名称<span style="color:red">*</span></label>
+                                  <input type="text" id="product_company_name" ng-model="publicdata.product_company_name" >
                                 </div>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="form-group">
-                                  <label for="product_line_name">生产线名称</label>
-                                  <input type="text" id="product_line_name" ng-model="p.product_line_name" required>
+                                  <label for="product_line_name">生产线名称<span style="color:red">*</span></label>
+                                  <input type="text" id="product_line_name" ng-model="publicdata.product_line_name" >
                                 </div>
                               </div>
                               <!--年份和吨位预设置结束-->
@@ -117,19 +116,19 @@
                                                 </tr>
                                                 <tr>
                                                   <td class="col-xs-2">熟料名称</td>
-                                                  <td><input ng-model="p.clinker1name"></td>
-                                                  <td><input ng-model="p.clinker2name"></td>
-                                                  <td><input ng-model="p.clinker3name"></td>
-                                                  <td><input ng-model="p.clinker4name"></td>
-                                                  <td><input ng-model="p.clinker5name"></td>  
+                                                  <td><input ng-model="clinkername.clinker1name"></td>
+                                                  <td><input ng-model="clinkername.clinker2name"></td>
+                                                  <td><input ng-model="clinkername.clinker3name"></td>
+                                                  <td><input ng-model="clinkername.clinker4name"></td>
+                                                  <td><input ng-model="clinkername.clinker5name"></td>  
                                                 </tr>
                                                 <tr>
                                                   <td class="col-md-2">消耗情况，万吨/年</td>
-                                                  <td><input ng-model="p.clinker1consume"></td>
-                                                  <td><input ng-model="p.clinker2consume"></td>
-                                                  <td><input ng-model="p.clinker3consume"></td>
-                                                  <td><input ng-model="p.clinker4consume"></td>
-                                                  <td><input ng-model="p.clinker5consume"></td>  
+                                                  <td><input ng-model="clinkerconsume.clinker1consume"></td>
+                                                  <td><input ng-model="clinkerconsume.clinker2consume"></td>
+                                                  <td><input ng-model="clinkerconsume.clinker3consume"></td>
+                                                  <td><input ng-model="clinkerconsume.clinker4consume"></td>
+                                                  <td><input ng-model="clinkerconsume.clinker5consume"></td>  
                                                 </tr> 
                                               </tbody>
                                             </table>
@@ -152,15 +151,15 @@
                                                   </tr>
                                                   <tr>
                                                   <td class="col-md-2">原材料名称</td>
-                                                  <td><input ng-model="p.fuel1name"></td>
-                                                  <td><input ng-model="p.fuel2name"></td>
-                                                  <td><input ng-model="p.fuel3name"></td>
+                                                  <td><input ng-model="fuel.fuel1name"></td>
+                                                  <td><input ng-model="fuel.fuel2name"></td>
+                                                  <td><input ng-model="fuel.fuel3name"></td>
                                                   </tr>
                                                 <tr>
                                                   <td class="col-md-2">消耗情况，万吨/年</td>
-                                                  <td><input ng-model="p.fuel1consume"></td>
-                                                  <td><input ng-model="p.fuel2consume"></td>
-                                                  <td><input ng-model="p.fuel3consume"></td>
+                                                  <td><input ng-model="fuel.fuel1consume"></td>
+                                                  <td><input ng-model="fuel.fuel2consume"></td>
+                                                  <td><input ng-model="fuel.fuel3consume"></td>
                                                 </tr> 
                                               </tbody></table>
                                             </div><!-- /.box-body -->
@@ -185,27 +184,27 @@
                                                     </tr>
                                                     <tr>
                                                     <td class="col-md-2">原材料名称</td>
-                                                    <td><input ng-model="p.cement1name"></td>
-                                                    <td><input ng-model="p.cement2name"></td>
-                                                    <td><input ng-model="p.cement3name"></td>
-                                                    <td><input ng-model="p.cement4name"></td>
-                                                    <td><input ng-model="p.cement5name"></td>
+                                                    <td><input ng-model="cement.cement1name"></td>
+                                                    <td><input ng-model="cement.cement2name"></td>
+                                                    <td><input ng-model="cement.cement3name"></td>
+                                                    <td><input ng-model="cement.cement4name"></td>
+                                                    <td><input ng-model="cement.cement5name"></td>
                                                     </tr>
                                                     <tr>
                                                       <td class="col-md-2">消耗情况，万吨/年</td>
-                                                      <td><input ng-model="p.cement1consume"></td>
-                                                      <td><input ng-model="p.cement2consume"></td>
-                                                      <td><input ng-model="p.cement3consume"></td>
-                                                      <td><input ng-model="p.cement4consume"></td>
-                                                      <td><input ng-model="p.cement5consume"></td>
+                                                      <td><input ng-model="cement.cement1consume"></td>
+                                                      <td><input ng-model="cement.cement2consume"></td>
+                                                      <td><input ng-model="cement.cement3consume"></td>
+                                                      <td><input ng-model="cement.cement4consume"></td>
+                                                      <td><input ng-model="cement.cement5consume"></td>
                                                     </tr> 
                                                   </tbody>
                                                </table>
                                               </div><!-- /.box-body -->
                                               <div class="production">
                                                 <div class="input-group">
-                                                  <span>熟料产量(万吨/年)</span><input type="text" ng-model="p.productionclinker">
-                                                  <span>水泥产量(万吨/年)</span><input type="text" ng-model="p.productioncement">
+                                                  <span>熟料产量(万吨/年)</span><input type="text" ng-model="p.clinkerproduction">
+                                                  <span>水泥产量(万吨/年)</span><input type="text" ng-model="p.cementProduction">
                                                 </div>
                                               </div>
                                            </div>
@@ -341,18 +340,18 @@
                                                   </tr>
                                                   <tr class="shengliaomo">
                                                   <td>生料磨</td>
-                                                  <td><input ng-model="p.shengliaomo_way"></td>
-                                                  <td>φ<input ng-model="p.shengliaomo_model_0"></td>
-                                                  <td><input ng-model="p.shengliaomo_number"></td>
+                                                  <td><input ng-model="publicdata.majorEquipmentPart.shengliaomo_way"></td>
+                                                  <td>φ<input ng-model="publicdata.majorEquipmentPart.shengliaomo_model_0"></td>
+                                                  <td><input ng-model="majorEquipmentPart.shengliaomo_number"></td>
                                                   <td>
                                                     <input type="button" value="增加" id="addshengliaomo" class="btn btn-info" ng-click="addshengliaomo()">
                                                   </td>
                                                   </tr>
                                                   <tr class="shuinimo">
                                                     <td>水泥磨</td>
-                                                    <td><input ng-model="p.shuinimo_way"></td>
-                                                    <td>φ<input ng-model="p.shuinimo_model_1" class="shuinimo_model"></td>
-                                                    <td><input ng-model="p.shuinimo_number"></td>
+                                                    <td><input ng-model="majorEquipmentPart.shuinimo_way"></td>
+                                                    <td>φ<input ng-model="majorEquipmentPart.shuinimo_model_1" class="shuinimo_model"></td>
+                                                    <td><input ng-model="majorEquipmentPart.shuinimo_number"></td>
                                                     <td>
                                                       <input type="button" value="增加" id="addshuinimo" class="btn btn-info" ng-click="addshuinimo()">
                                                     </td>
