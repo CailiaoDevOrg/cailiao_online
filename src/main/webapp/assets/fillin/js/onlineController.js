@@ -3,138 +3,69 @@ onlineApp.controller('onlineController',function($scope,$http){
   $("#record_content").css("display","none");
   changedisplay($("#scanlist"),"none");
   changedisplay($("#scanlistdiv"),"block");
+
+  var shengliaomoIndex=0;//生料磨索引
+  var shuinimoIndex=0;//水泥磨索引
+
+   $scope.exhaustEmissionPart={
+      ammoniaJetting:''
+    };
+  $scope.majorEquipmentPart={
+    yaoTypeB:'',
+    yaoTypeA:''
+  }
     /*初始化隐藏项*/
 	$scope.submitform=function(){
     $(window).unbind('beforeunload');//解除绑定的提醒
+  /*    function onlineTostring(obj,itemname){
+          angular.forEach(obj, function(item, index) {
+            itemname.push(item);
+          });
+          itemname=angular.toJson(itemname);
+          return itemname;
+    }*/
     /*定义数据结构*/
-    var clinkerProduction=$scope.p.clinkerproduction;//熟料产量
-    var clinkerItemList = [];//熟料制成原材料，包含名称和消耗情况
-        clinkerItemList.push({"name":$scope.clinkername.clinker1name,
-                              "wtonsPerYear":$scope.clinkerconsume.clinker1consume});
-        clinkerItemList.push({"name":$scope.clinkername.clinker2name,
-                              "wtonsPerYear":$scope.clinkerconsume.clinker2consume});
-        clinkerItemList.push({"name":$scope.clinkername.clinker3name,
-                              "wtonsPerYear":$scope.clinkerconsume.clinker3consume});
-        clinkerItemList.push({"name":$scope.clinkername.clinker4name,
-                              "wtonsPerYear":$scope.clinkerconsume.clinker4consume});
-        clinkerItemList.push({"name":$scope.clinkername.clinker5name,
-                              "wtonsPerYear":$scope.clinkerconsume.clinker5consume});
-        /*clinkerItemlist数据*/
-    var clinkerPart={
-      clinkerProduction:clinkerProduction,
-      clinkerItemList:clinkerItemList
-    };
-    /*clinkerpart end   fulepart start*/
-    var fuelItemList=[];
-        fuelItemList.push({"name":$scope.fuel.fuel1name,
-                            "wtonsPerYear":$scope.fuel.fuel1consume});
-        fuelItemList.push({"name":$scope.fuel.fuel2name,
-                            "wtonsPerYear":$scope.fuel.fuel2consume});
-        fuelItemList.push({"name":$scope.fuel.fuel3name,
-                            "wtonsPerYear":$scope.fuel.fuel3consume});
-    var fuelPart={
-      fuelItemList:fuelItemList
-    };
-    /*fuelPart end cementPart start*/
-    var cementProduction=$scope.p.cementProduction;//水泥产量
-    var cementStoneList=[];//水泥制成用原材料
-        cementStoneList.push({"name":$scope.cement.cement1name,
-                              "wtonsPerYear":$scope.cement.cement1consume});
-        cementStoneList.push({"name":$scope.cement.cement2name,
-                              "wtonsPerYear":$scope.cement.cement2consume});
-        cementStoneList.push({"name":$scope.cement.cement3name,
-                              "wtonsPerYear":$scope.cement.cement3consume});
-        cementStoneList.push({"name":$scope.cement.cement4name,
-                              "wtonsPerYear":$scope.cement.cement4consume});
-        cementStoneList.push({"name":$scope.cement.cement5name,
-                              "wtonsPerYear":$scope.cement.cement5consume});
-    var cementStonePart={
-      cementProduction:cementProduction,
-      cementStoneList:cementStoneList
-    };
-    /*cementPart end  energyConsumptionPart start*/
-    var energyConsumptionPart={
-      powerConsumptionBySlfm:$scope.p.powerConsumptionBySlfm,
-      coalConsumptionByKbsl:$scope.p.coalConsumptionByKbsl,
-      powerConsumptionByKbsl:$scope.p.powerConsumptionByKbsl,
-      energyConsumptionByKbsl:$scope.p.energyConsumptionByKbsl,
-      powerConsumptionByKbsn:$scope.p.powerConsumptionByKbsn,
-      energyConsumptionByKbsn:$scope.p.energyConsumptionByKbsn,
-      powerGenerationUnit:$scope.p.powerGenerationUnit
-    };
-    /*exhaustEmissionPart start*/
-    var ammoniaJetting=$scope.p.ammoniaJetting;
-    var fractionalCombustion=$scope.p.fractionalCombustion;
-    var oneAndTwo=$scope.p.oneAndTwo;
-    var sNCR=$scope.p.sNCR;
-    var exhaustEmissionItemList=[];
-        exhaustEmissionItemList.push({"ammoniaJetting":$scope.})
-    var exhaustEmissionPart=[];
+    var year=$scope.year;
+    var tons=$scope.tones;
+    var productCompanyName=$scope.productCompanyName;
+    var productLineName=$scope.productLineName;
+
+    $scope.exhaustEmissionPart.exhaustEmissionItemList = $scope.pp;
+    $scope.majorEquipmentPart.shuinimo=$scope.shuinimo;   
+    $scope.majorEquipmentPart.shengliaomo=$scope.shengliaomo;
     /*majorEquipmentPart start*/
-    
     var data={
-      "clinkerPart" : clinkerPart,
-      "cementStonePart":cementStonePart,
-      "fuelPart":fuelPart,
-      "energyConsumptionPart":energyConsumptionPart,
-      "exhaustEmissionPart":exhaustEmissionPart
+      "year":year,
+      "tons":tons,
+      "productCompanyName":productCompanyName,
+      "productLineName":productLineName,
+      "clinkerPart" : $scope.clinker,
+      "cementPart" : $scope.cement,
+      "fulepart" : $scope.fuel,
+      "energyConsumptionPart":$scope.energy,
+      "majorEquipmentPart":$scope.majorEquipmentPart,
+      "exhaustEmissionPart":$scope.exhaustEmissionPart
       };
-      var datastr=JSON.stringify(data); 
-      console.log(datastr);
+      //var datastr=JSON.stringify(data); 
+      console.log(data);
 	};
-  var shengliaomoIndex=0;//生料磨索引初始为1
-  var shuinimoIndex=0;//水泥磨索引初始为1
+  
 	$scope.addshengliaomo=function(){
-		var shengliaomolen=$(".shengliaomo").length;
-		var count=parseInt(shengliaomolen)-1;
-	  shengliaomoIndex=shengliaomoIndex+1;
-		var add_tr=['<tr class="shengliaomo_',
-                              shengliaomoIndex,
-                              '">',
-                              '<td>生料磨</td>',
-                              '<td><input ng-model="p.shengliaomo_way_',
-                              shengliaomoIndex,
-                              '"></td>',
-                              '<td>φ<input ng-model="p.shengliaomo_model_',
-                              shengliaomoIndex,
-                              '"></td>',
-                              '<td><input ng-model="p.shengliaomo_number_',
-                              shengliaomoIndex,
-                              '"></td>',
-                              '<td>',
-                                '<input type="button" value="删除" class="btn btn-warning" onclick="deleteshengliaomo(',
-                                  shengliaomoIndex,
-                                  ')">',
-                              '</td></tr>'].join('');
-        $(".shengliaomo").eq(count).after(add_tr);
+    shuinimoIndex=shuinimoIndex+1;
+    $(".shengliaomo").eq(shuinimoIndex).removeClass("_hidden");
 	}
 
   $scope.addshuinimo=function(){
-    var shuinimolen=$(".shuinimo").length;
-    var count=parseInt(shuinimolen)-1;
-    shuinimoIndex=shuinimoIndex+1;
-    var add_tr=['<tr class="shuinimo_',
-                              shuinimoIndex,
-                              '">',
-                              '<td>水泥磨</td>',
-                              '<td><input></td>',
-                              '<td>φ<input ng-model="p.shuinimo_model_',
-                              shuinimoIndex,
-                              '"></td>',
-                              '<td><input ng-model="p.shuinimo_number_',
-                              shuinimoIndex,
-                              '"></td>',
-                              '<td>',
-                                '<input type="button" value="删除" class="btn btn-warning" onclick="deleteshuinimo(',
-                                  shuinimoIndex,
-                                  ')">',
-                              '</td></tr>'].join('');
-        $(".shuinimo").eq(count).after(add_tr);
+
   }
 	
 	$scope.deleteequipment=function(){
 		console.log("xinhaolei");
 	}
+
+  $scope.deleteequipment=function(){
+    console.log("xinhaolei");
+  }
 
   $scope.showrecord=function(){
     //var record_content=$("#record_content");
@@ -149,18 +80,7 @@ onlineApp.controller('onlineController',function($scope,$http){
     changedisplay($("#scanlist"),"none");
   }
 
-  /*数据定义如下*/
-  $scope.publicdata={
-    tons:'',
-    year:'2016',
-    /*majorEquipmentPart:[
-      shengliaomo_way:'',
-      shengliaomo_model_0:''
-    ]*/
-  };
-  $scope.exhaustEmissionPart={
-      ammoniaJetting:''
-    }
+ 
 
   function changedisplay(elem,display){
     elem.css("display",display);
