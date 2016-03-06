@@ -346,7 +346,7 @@
                                                     <td><input ng-model="shengliaomo[0].number"></td>
                                                     <td>
                                                       <input type="button" value="增加" id="addshengliaomo" class="btn btn-info" ng-click="addshengliaomo()">
-                                                      <input type="button" value="增加" id="addshengliaomo" class="btn btn-warning" ng-click="deletehengliaomo()">
+                                                      <input type="button" value="删除" id="deleteshengliaomo" class="btn btn-warning" ng-click="deleteshengliaomo()">
                                                     </td>
                                                   </tr>
                                                   <tr class="shengliaomo _hidden">
@@ -377,7 +377,7 @@
                                                     <td><input ng-model="shuinimo[0].number"></td>
                                                     <td>
                                                       <input type="button" value="增加" id="addshuinimo" class="btn btn-info" ng-click="addshuinimo()">
-                                                      <input type="button" value="增加" id="deletshuinimo" class="btn btn-warning" ng-click="deleteshuinimo()">
+                                                      <input type="button" value="删除" id="deletshuinimo" class="btn btn-warning" ng-click="deleteshuinimo()">
                                                     </td>
                                                   </tr> 
                                                   <tr class="shuinimo _hidden">

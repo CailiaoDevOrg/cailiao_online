@@ -51,20 +51,31 @@ onlineApp.controller('onlineController',function($scope,$http){
 	};
   
 	$scope.addshengliaomo=function(){
-    shuinimoIndex=shuinimoIndex+1;
-    $(".shengliaomo").eq(shuinimoIndex).removeClass("_hidden");
+    shengliaomoIndex=shengliaomoIndex+1;
+    $(".shengliaomo").eq(shengliaomoIndex).removeClass("_hidden");
 	}
 
   $scope.addshuinimo=function(){
-
+    shuinimoIndex=shuinimoIndex+1;
+    $(".shuinimo").eq(shuinimoIndex).removeClass("_hidden");
   }
 	
-	$scope.deleteequipment=function(){
-		console.log("xinhaolei");
+	$scope.deleteshengliaomo=function(){
+		if(shengliaomoIndex>0){
+      $(".shengliaomo").eq(shengliaomoIndex).addClass("_hidden");
+      shengliaomoIndex=shengliaomoIndex-1;
+    }else{
+      console.log("cant cancel");
+    }
 	}
 
-  $scope.deleteequipment=function(){
-    console.log("xinhaolei");
+  $scope.deleteshuinimo=function(){
+    if(shuinimoIndex>0){
+      $(".shuinimo").eq(shuinimoIndex).addClass("_hidden");
+      shuinimoIndex=shuinimoIndex-1;
+    }else{
+      console.log("cant cancel");
+    }
   }
 
   $scope.showrecord=function(){
