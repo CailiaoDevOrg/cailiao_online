@@ -7,6 +7,8 @@ onlineApp.controller('onlineController',function($scope,$http){
   var shengliaomoIndex=0;//生料磨索引
   var shuinimoIndex=0;//水泥磨索引
 
+
+  /*定义数据结构*/
    $scope.exhaustEmissionPart={
       ammoniaJetting:''
     };
@@ -14,17 +16,7 @@ onlineApp.controller('onlineController',function($scope,$http){
     yaoTypeB:'',
     yaoTypeA:''
   }
-    /*初始化隐藏项*/
-	$scope.submitform=function(){
-    $(window).unbind('beforeunload');//解除绑定的提醒
-  /*    function onlineTostring(obj,itemname){
-          angular.forEach(obj, function(item, index) {
-            itemname.push(item);
-          });
-          itemname=angular.toJson(itemname);
-          return itemname;
-    }*/
-    /*定义数据结构*/
+
     var year=$scope.year;
     var tons=$scope.tones;
     var productCompanyName=$scope.productCompanyName;
@@ -46,10 +38,32 @@ onlineApp.controller('onlineController',function($scope,$http){
       "majorEquipmentPart":$scope.majorEquipmentPart,
       "exhaustEmissionPart":$scope.exhaustEmissionPart
       };
-      //var datastr=JSON.stringify(data); 
-      console.log(data);
-	};
-  
+      var datastr=JSON.stringify(data); 
+    /*初始化隐藏项*/
+	$scope.submitform=function(){
+    $(window).unbind('beforeunload');//解除绑定的提醒
+    /*    function onlineTostring(obj,itemname){
+            angular.forEach(obj, function(item, index) {
+              itemname.push(item);
+            });
+            itemname=angular.toJson(itemname);
+            return itemname;
+      }*/
+      console.log(datastr);
+      $.post('/q//commitQuestionnaireContent.html',{data:data},function(reponse,status){
+        console.log("提交成功");
+      }).fail(function(){
+        console.log("提交失败");
+      });
+      
+  };
+  $scope.saveform=function(){
+    $.post('/q//saveQuestionnaireContentTemp.html',{data:data},function(reponse,status){
+        console.log("保存成功");
+      }).fail(function(){
+        console.log("保存失败");
+      });
+  }
 	$scope.addshengliaomo=function(){
     shengliaomoIndex=shengliaomoIndex+1;
     $(".shengliaomo").eq(shengliaomoIndex).removeClass("_hidden");
@@ -144,16 +158,17 @@ onlineApp.controller('onlineController',function($scope,$http){
                             }, 
                             {
                                 title: '审核状态',
-                                field: 'option2',
+                                field: 'option1',
                                 align: 'center',
                                 width:60
                             },
                             {
                                 title: '操作状态',
-                                field: 'option1',
+                                field: 'option2',
                                 align: 'center',
                                 width:60,
-                                formatter:operateFormatter
+                                formatter:operateFormatter,
+                                //events:editEvents
                             }
                             
                         ]
@@ -164,9 +179,18 @@ onlineApp.controller('onlineController',function($scope,$http){
   }
 
   function operateFormatter(value, row, index) {
-          return ['<input type="button" value="编辑" class="btn">']
+    if(value!='pass'){
+      return ['<input type="button" value="编辑" class="btn btn-primary edit" disabled="disabled">']
+    }else{
+      return ['<input type="button" value="编辑" class="btn btn-primary" data-method="post">']
+    }      
   }
 
+ /* window.editEvents=function(){
+    'click .edit': function (e,value,row,index) {
+        window.open("./index.php?r=analyses/result-read&result_id=" + row.id,"_blank");
+    }
+  };*/
   $(window).bind('beforeunload',function(){
     return '您输入的内容尚未提交，确定离开此页面吗？';
   });

@@ -11,13 +11,13 @@
 "productline" : "2生产线",
 "submittime" : "2016-3-3",
 "option1" : "edible",
-"option2":"pass"
+"option2":"disabled"
 },
 {
 "productline" : "3生产线",
 "submittime" : "2016-3-3",
 "option1" : "edible",
-"option2":"pass"
+"option2":"disabled"
 },
 {
 "productline" : "4生产线",
