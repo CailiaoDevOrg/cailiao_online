@@ -46,6 +46,18 @@ public class QuestionnaireController extends BaseController {
     }
 
     /**
+     * 查看填写的问卷的详情
+     * @param questionnaireContentId
+     * @return
+     */
+    @RequestMapping("/getQuestionnaireContent/{questionnaireContentId}.html")
+    @ResponseBody
+    public String getQuestionnaireContent(@PathVariable int questionnaireContentId) {
+        ApiResponse response = this.questionnaireService.getQuestionnaireContent(questionnaireContentId);
+        return convertApiResponseToJSONString(response);
+    }
+
+    /**
      * finished
      * 临时保存用户问卷填写内容
      * 保存到问卷表
