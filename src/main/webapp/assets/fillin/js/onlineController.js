@@ -39,6 +39,15 @@ onlineApp.controller('onlineController',function($scope,$http){
       "exhaustEmissionPart":$scope.exhaustEmissionPart
       };
       var datastr=JSON.stringify(data); 
+      var senddata={
+        "id":007,
+        "questionnaireTemplateId":'22222',
+        "cementFactoryId":'333',
+        "productionLine":'东方一线',
+        "jsonContent":data
+
+      }
+      var senddatastr=angular.toJson(senddata);
     /*初始化隐藏项*/
 	$scope.submitform=function(){
     $(window).unbind('beforeunload');//解除绑定的提醒
@@ -49,8 +58,9 @@ onlineApp.controller('onlineController',function($scope,$http){
             itemname=angular.toJson(itemname);
             return itemname;
       }*/
-      console.log(datastr);
-      $.post('/q//commitQuestionnaireContent.html',{data:data},function(reponse,status){
+      /*console.log(senddata);
+      console.log(senddatastr);*/
+      $.post('/q/commitQuestionnaireContent.html',{data:senddatastr},function(reponse,status){
         console.log("提交成功");
       }).fail(function(){
         console.log("提交失败");
@@ -58,7 +68,7 @@ onlineApp.controller('onlineController',function($scope,$http){
       
   };
   $scope.saveform=function(){
-    $.post('/q//saveQuestionnaireContentTemp.html',{data:data},function(reponse,status){
+    $.post('/q/saveQuestionnaireContentTemp.html',{data:senddatastr},function(reponse,status){
         console.log("保存成功");
       }).fail(function(){
         console.log("保存失败");

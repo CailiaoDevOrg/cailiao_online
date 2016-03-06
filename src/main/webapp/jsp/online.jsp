@@ -69,7 +69,7 @@
                           <div class="row mainrow">
                             <h1 class="online_h1">水泥调查信息简表</h1>
                             <!--form表单开始-->
-                            <form id="cement_info">
+                           
                               <div class="pre_set form-inline">
                                 <div class="form-group">
                                   <label for="pre_set_year">年份<span style="color:red">*</span></label>
@@ -419,7 +419,7 @@
                               <!--主要设备结束-->
                               <input type="submit" value="提 交" class="btn btn-success btn-lg" id="submit" ng-click="submitform()">
                               <input type="submit" value="保 存" class="btn btn-success btn-lg" id="save" ng-click="saveform()">
-                            </form>
+                            
                           </div>
                         </section><!-- /.content -->
                 </div><!-- /.content-wrapper -->
