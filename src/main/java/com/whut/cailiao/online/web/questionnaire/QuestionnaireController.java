@@ -50,7 +50,7 @@ public class QuestionnaireController extends BaseController {
      * @param questionnaireContentId
      * @return
      */
-    @RequestMapping("/getQuestionnaireContent/{questionnaireContentId}.html")
+    @RequestMapping(value = "/getQuestionnaireContent/{questionnaireContentId}.html", method = RequestMethod.GET)
     @ResponseBody
     public String getQuestionnaireContent(@PathVariable int questionnaireContentId) {
         ApiResponse response = this.questionnaireService.getQuestionnaireContent(questionnaireContentId);
@@ -74,7 +74,7 @@ public class QuestionnaireController extends BaseController {
      * 更改问卷表状态
      * @param questionnaireContent
      */
-    @RequestMapping(value = "/commitQuestionnaireContent.html", method = RequestMethod.PUT)
+    @RequestMapping(value = "/commitQuestionnaireContent.html", method = RequestMethod.POST)
     @ResponseBody
     public String commitQuestionnaireContent(@RequestBody QuestionnaireContent questionnaireContent) {
         ApiResponse response = this.questionnaireService.commitQuestionnaireContent(questionnaireContent);
@@ -86,7 +86,7 @@ public class QuestionnaireController extends BaseController {
      * 问卷删除
      * 删除填写错误的问卷
      */
-    @RequestMapping(value = "/deleteQuestionnaireContent/{questionnaireContentId}.html", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deleteQuestionnaireContent/{questionnaireContentId}.html", method = RequestMethod.GET)
     public String deleteQuestionnaireContent(@PathVariable int questionnaireContentId) {
         ApiResponse response = this.questionnaireService.deleteQuestionnaireContent(questionnaireContentId);
         return convertApiResponseToJSONString(response);
