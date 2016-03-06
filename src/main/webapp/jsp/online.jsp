@@ -203,8 +203,8 @@
                                               </div><!-- /.box-body -->
                                               <div class="production">
                                                 <div class="input-group">
-                                                  <span>熟料产量(万吨/年)</span><input type="text" ng-model="p.clinkerproduction">
-                                                  <span>水泥产量(万吨/年)</span><input type="text" ng-model="p.cementProduction">
+                                                  <span>熟料产量(万吨/年)</span><span style="color:red">*</span><input type="text" ng-model="p.clinkerproduction">
+                                                  <span>水泥产量(万吨/年)</span><span style="color:red">*</span><input type="text" ng-model="p.cementProduction">
                                                 </div>
                                               </div>
                                            </div>
@@ -232,13 +232,13 @@
                                                   </tr>
                                                 <tr>
                                                   <td >数值</td>
-                                                  <td><input ng-model="p.shengfenfenmogongduandianhao"></td>
-                                                  <td><input ng-model="p.kebishuliaozonghemeihao"></td>
-                                                  <td><input ng-model="p.kebishuliaozonghedianhao"></td>
-                                                  <td><input ng-model="p.kebishuliaozonghenenghao"></td>
-                                                   <td><input ng-model="p.kebishuinizonghedianhao"></td>
-                                                    <td><input ng-model="p.kebishuinizonghenenghao"></td>
-                                                     <td><input ng-model="p.danweishuliaoyurefadian"></td>
+                                                  <td><input ng-model="p.powerConsumptionBySlfm"></td>
+                                                  <td><input ng-model="p.coalConsumptionByKbsl"></td>
+                                                  <td><input ng-model="p.powerConsumptionByKbsl"></td>
+                                                  <td><input ng-model="p.energyConsumptionByKbsl"></td>
+                                                   <td><input ng-model="p.powerConsumptionByKbsn"></td>
+                                                    <td><input ng-model="p.energyConsumptionByKbsn"></td>
+                                                     <td><input ng-model="p.powerGenerationUnit"></td>
                                                 </tr> 
                                               </tbody></table>
                                             </div><!-- /.box-body -->
@@ -302,21 +302,21 @@
                                         <!--喷氨-->
                                         <div class="otherdata">  
                                           <div id="ammonia_jetting">
-                                            喷氨(kg/t熟料):&nbsp;&nbsp;<input type="text" ng-model="p.ammonia_jetting">
+                                            喷氨(kg/t熟料):&nbsp;&nbsp;<input type="text" ng-model="p.ammoniaJetting">
                                           </div>
                                           <!--脱硝工艺-->
                                           <div id="denitrification" class="form-inline">
                                             脱硝工艺:
                                             <div class="form-group checkbox">
-                                              <label><input type="checkbox" value="SNCR"  ng-model="p.denitrification_SNCR"/>SNCR </label>
+                                              <label><input type="checkbox" value="SNCR"  ng-model="p.sNCR"/>SNCR </label>
                                             </div>
                                             <div class="form-group checkbox">
-                                              <label><input type="checkbox" value="fenjiranshao" ng-model="p.denitrification_fenjiranshao" />分级燃烧 </label>
+                                              <label><input type="checkbox" value="fenjiranshao" ng-model="p.fractionalCombustion" />分级燃烧 </label>
                                             </div>
                                             <div class="form-group checkbox">
-                                              <label><input type="checkbox" value="yijiaer" ng-model="p.denitrification_yijiaer" /><label>1+2 </label>
+                                              <label><input type="checkbox" value="yijiaer" ng-model="p.oneAndTwo" /><label>1+2 </label>
                                             </div>
-                                            <div class="form-group checkbox"><label><input type="checkbox" value="other" ng-model="p.denitrification_other" /><label>其他 </label>
+                                            <div class="form-group checkbox"><label><input type="checkbox" value="other" ng-model="p.other" /><label>其他 </label>
                                             </div>   
                                           </div><!--脱销工艺-->
                                         </div><!--otherdata end-->

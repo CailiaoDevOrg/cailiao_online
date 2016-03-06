@@ -19,18 +19,66 @@ onlineApp.controller('onlineController',function($scope,$http){
                               "wtonsPerYear":$scope.clinkerconsume.clinker4consume});
         clinkerItemList.push({"name":$scope.clinkername.clinker5name,
                               "wtonsPerYear":$scope.clinkerconsume.clinker5consume});
-        /*clinkerstonlist数据*/
-    var clinkerStonePart={
-     clinkerProduction:clinkerProduction,
+        /*clinkerItemlist数据*/
+    var clinkerPart={
+      clinkerProduction:clinkerProduction,
       clinkerItemList:clinkerItemList
     };
-
+    /*clinkerpart end   fulepart start*/
+    var fuelItemList=[];
+        fuelItemList.push({"name":$scope.fuel.fuel1name,
+                            "wtonsPerYear":$scope.fuel.fuel1consume});
+        fuelItemList.push({"name":$scope.fuel.fuel2name,
+                            "wtonsPerYear":$scope.fuel.fuel2consume});
+        fuelItemList.push({"name":$scope.fuel.fuel3name,
+                            "wtonsPerYear":$scope.fuel.fuel3consume});
+    var fuelPart={
+      fuelItemList:fuelItemList
+    };
+    /*fuelPart end cementPart start*/
     var cementProduction=$scope.p.cementProduction;//水泥产量
     var cementStoneList=[];//水泥制成用原材料
-
+        cementStoneList.push({"name":$scope.cement.cement1name,
+                              "wtonsPerYear":$scope.cement.cement1consume});
+        cementStoneList.push({"name":$scope.cement.cement2name,
+                              "wtonsPerYear":$scope.cement.cement2consume});
+        cementStoneList.push({"name":$scope.cement.cement3name,
+                              "wtonsPerYear":$scope.cement.cement3consume});
+        cementStoneList.push({"name":$scope.cement.cement4name,
+                              "wtonsPerYear":$scope.cement.cement4consume});
+        cementStoneList.push({"name":$scope.cement.cement5name,
+                              "wtonsPerYear":$scope.cement.cement5consume});
+    var cementStonePart={
+      cementProduction:cementProduction,
+      cementStoneList:cementStoneList
+    };
+    /*cementPart end  energyConsumptionPart start*/
+    var energyConsumptionPart={
+      powerConsumptionBySlfm:$scope.p.powerConsumptionBySlfm,
+      coalConsumptionByKbsl:$scope.p.coalConsumptionByKbsl,
+      powerConsumptionByKbsl:$scope.p.powerConsumptionByKbsl,
+      energyConsumptionByKbsl:$scope.p.energyConsumptionByKbsl,
+      powerConsumptionByKbsn:$scope.p.powerConsumptionByKbsn,
+      energyConsumptionByKbsn:$scope.p.energyConsumptionByKbsn,
+      powerGenerationUnit:$scope.p.powerGenerationUnit
+    };
+    /*exhaustEmissionPart start*/
+    var ammoniaJetting=$scope.p.ammoniaJetting;
+    var fractionalCombustion=$scope.p.fractionalCombustion;
+    var oneAndTwo=$scope.p.oneAndTwo;
+    var sNCR=$scope.p.sNCR;
+    var exhaustEmissionItemList=[];
+        exhaustEmissionItemList.push({"ammoniaJetting":$scope.})
+    var exhaustEmissionPart=[];
+    /*majorEquipmentPart start*/
+    
     var data={
-      "clinkerStonePart" : clinkerStonePart
-      }
+      "clinkerPart" : clinkerPart,
+      "cementStonePart":cementStonePart,
+      "fuelPart":fuelPart,
+      "energyConsumptionPart":energyConsumptionPart,
+      "exhaustEmissionPart":exhaustEmissionPart
+      };
       var datastr=JSON.stringify(data); 
       console.log(datastr);
 	};
