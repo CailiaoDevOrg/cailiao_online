@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ImportResource;
  * Created by niuyang on 16/2/23.
  */ 
 @SpringBootApplication
-//@ImportResource("classpath:consumer.xml")
+@ImportResource("classpath:consumer.xml")
 public class OnlineApplication extends SpringBootServletInitializer {
 
     @Override
