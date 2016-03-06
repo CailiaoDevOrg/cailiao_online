@@ -1,11 +1,5 @@
 package com.whut.cailiao.online.web;
 
-import com.alibaba.fastjson.JSON;
-import com.whut.cailiao.api.model.questionnaire.Questionnaire;
-import com.whut.cailiao.api.service.questionnaire.QuestionnaireBaseService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
