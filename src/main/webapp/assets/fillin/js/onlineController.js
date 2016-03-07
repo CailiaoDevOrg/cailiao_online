@@ -30,15 +30,6 @@ onlineApp.controller('onlineController',function($scope,$http){
 	$scope.submitform=function(){
     $(window).unbind('beforeunload');//解除绑定的提醒
     var clinker=$scope.clinker;
-    /*var clinkerPart=[];
-    if(clinker!=undefined){
-      clinkerPart.push(clinker);
-      }else{
-        clinkerPart=[""];
-      }*/
-
-   // console.log(clinkerPart);
-    //alert(angular.toJson($))
     var datastr={
       "year":year,
       "tons":tons,
@@ -52,31 +43,41 @@ onlineApp.controller('onlineController',function($scope,$http){
       "exhaustEmissionPart":$scope.exhaustEmissionPart
       };
       
-      //var data=JSON.stringify(datastr);
       var senddata={
         "id":007,
         "questionnaireTemplateId":22222,
         "cementFactoryId":'333',
         "productionLine":'东方一线',
-       // "jsonContent":''
-
+        "jsonContent":datastr
       };
       senddata=angular.toJson(senddata);
-      //console.log(data);*/
-      //console.log(datastr);
       $.ajax({
     	 url: '/q/commitQuestionnaireContent.html',
     	 type: 'post',
     	 data: senddata,
-    	 contentType: 'application/json'
+    	 contentType: 'application/json',
+       success:function(){
+        alert("提交成功！");
+       },
+       error:function(){
+        alert("提交失败！");
+       }
       });
 	}
   $scope.saveform=function(){
-    $.post('/q/saveQuestionnaireContentTemp.html',{data:senddatastr},function(reponse,status){
-        console.log("保存成功");
-      }).fail(function(){
-        console.log("保存失败");
-      });
+    $(window).unbind('beforeunload');
+    $.ajax({
+       url: '/q/saveQuestionnaireContentTemp.html',
+       type: 'post',
+       data: senddata,
+       contentType: 'application/json',
+       success:function(){
+        alert("保存成功！");
+       },
+       error:function(){
+        alert("保存失败！");
+       }
+      })
   }
 	$scope.addshengliaomo=function(){
     shengliaomoIndex=shengliaomoIndex+1;
@@ -130,16 +131,6 @@ onlineApp.controller('onlineController',function($scope,$http){
 
 });/*controller 结束*/
 
-    
-  function deleteshengliaomo(n){//主要设备的删除
-    var m=parseInt(n);
-    $(".shengliaomo_"+n).remove();
-  };
-  function deleteshuinimo(n){//主要设备的删除
-    var m=parseInt(n);
-    $(".shuinimo_"+n).remove();
-  };
-  var codecount=0;
   $(function(){
     $("#online_table").bootstrapTable({
       url: "/assets/testjson/data.json", 
@@ -194,9 +185,9 @@ onlineApp.controller('onlineController',function($scope,$http){
 
   function operateFormatter(value, row, index) {
     if(value!='pass'){
-      return ['<input type="button" value="编辑" class="btn btn-primary edit" disabled="disabled">']
+      return ['<input type="button" value="查看" class="btn btn-primary overlook" disabled="disabled">'];
     }else{
-      return ['<input type="button" value="编辑" class="btn btn-primary" data-method="post">']
+      return ['<input type="button" value="编辑" class="btn btn-primary edit" data-method="post">']
     }      
   }
 
