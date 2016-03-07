@@ -431,5 +431,6 @@
         <script type="text/javascript" src="/assets/fillin/js/onlineController.js"></script>
         <script src="/assets/bootstrap/js/bootstrap-table.js"></script> 
          <script src="/assets/bootstrap/js/bootstrap-table-zh-CN.js"></script>
+         <script type="text/javascript" src="/assets/global/table_common.js"></script>
     </body>
 </html>

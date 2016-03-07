@@ -10,11 +10,11 @@ onlineApp.controller('onlineController',function($scope,$http){
 
   /*定义数据结构*/
    $scope.exhaustEmissionPart={
-      ammoniaJetting:''
+      //ammoniaJetting:""
     };
   $scope.majorEquipmentPart={
-    yaoTypeB:'',
-    yaoTypeA:''
+    //yaoTypeB:"",
+    //yaoTypeA:""
   }
 
     var year=$scope.year;
@@ -43,6 +43,8 @@ onlineApp.controller('onlineController',function($scope,$http){
       "exhaustEmissionPart":$scope.exhaustEmissionPart
       };
       
+      datastr=JSON.stringify(datastr);
+      //alert(datastr);
       var senddata={
         "id":007,
         "questionnaireTemplateId":22222,
@@ -66,6 +68,30 @@ onlineApp.controller('onlineController',function($scope,$http){
 	}
   $scope.saveform=function(){
     $(window).unbind('beforeunload');
+    var clinker=$scope.clinker;
+    var datastr={
+      "year":year,
+      "tons":tons,
+      "productCompanyName":productCompanyName,
+      "productLineName":productLineName,
+      "clinkerPart" :clinker,
+      "cementPart" : $scope.cement,
+      "fulepart": $scope.fuel,
+      "energyConsumptionPart":$scope.energy,
+      "majorEquipmentPart":$scope.majorEquipmentPart,
+      "exhaustEmissionPart":$scope.exhaustEmissionPart
+      };
+      
+      datastr=JSON.stringify(datastr);
+      //alert(datastr);
+      var senddata={
+        "id":007,
+        "questionnaireTemplateId":22222,
+        "cementFactoryId":'333',
+        "productionLine":'东方一线',
+        "jsonContent":datastr
+      };
+      senddata=angular.toJson(senddata);
     $.ajax({
        url: '/q/saveQuestionnaireContentTemp.html',
        type: 'post',
@@ -132,17 +158,16 @@ onlineApp.controller('onlineController',function($scope,$http){
 });/*controller 结束*/
 
   $(function(){
-    $("#online_table").bootstrapTable({
-      url: "/assets/testjson/data.json", 
-              dataType: "json",
+    function get_result_view_template()
+    {
+      return{
+              //dataType: "json",
               pagination: true, //分页
               pageList: [5, 10, 15],
               pageSize:5,
               height:450, 
               search: true, //显示搜索框
-
-              //sidePagination: "server", //服务端处理分页
-                    columns: [
+        columns: [
                             {
                                title: '编号',
                                 field: 'code',
@@ -177,18 +202,22 @@ onlineApp.controller('onlineController',function($scope,$http){
                             }
                             
                         ]
-    });
+      }
+    }
+
+    var onlinelist_view = new MGeneralTableTool.MGeneralTable();
+    onlinelist_view.CreateTable('online_table',get_result_view_template(),"./index.php?r=result/load-result-items",{},true);
+  
   function codeFormatter(value,row,index){
     return index+1;
-
   }
 
   function operateFormatter(value, row, index) {
     if(value!='pass'){
-      return ['<input type="button" value="查看" class="btn btn-primary overlook" disabled="disabled">'];
-    }else{
+      return ['<input type="button" value="查看" class="btn btn-info scan" data-method="post">']
+    } else{
       return ['<input type="button" value="编辑" class="btn btn-primary edit" data-method="post">']
-    }      
+    }    
   }
 
  /* window.editEvents=function(){
