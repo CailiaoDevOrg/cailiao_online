@@ -21,46 +21,50 @@ onlineApp.controller('onlineController',function($scope,$http){
     var tons=$scope.tones;
     var productCompanyName=$scope.productCompanyName;
     var productLineName=$scope.productLineName;
-
+    
     $scope.exhaustEmissionPart.exhaustEmissionItemList = $scope.pp;
     $scope.majorEquipmentPart.shuinimo=$scope.shuinimo;   
     $scope.majorEquipmentPart.shengliaomo=$scope.shengliaomo;
-    /*majorEquipmentPart start*/
-    var data={
+
+    /*初始化隐藏项*/
+	$scope.submitform=function(){
+    $(window).unbind('beforeunload');//解除绑定的提醒
+    var clinker=$scope.clinker;
+    /*var clinkerPart=[];
+    if(clinker!=undefined){
+      clinkerPart.push(clinker);
+      }else{
+        clinkerPart=[""];
+      }*/
+
+   // console.log(clinkerPart);
+    //alert(angular.toJson($))
+    var datastr={
       "year":year,
       "tons":tons,
       "productCompanyName":productCompanyName,
       "productLineName":productLineName,
-      "clinkerPart" : $scope.clinker,
+      "clinkerPart" :clinker,
       "cementPart" : $scope.cement,
-      "fulepart" : $scope.fuel,
+      "fulepart": $scope.fuel,
       "energyConsumptionPart":$scope.energy,
       "majorEquipmentPart":$scope.majorEquipmentPart,
       "exhaustEmissionPart":$scope.exhaustEmissionPart
       };
-      var datastr=JSON.stringify(data); 
+      
+      //var data=JSON.stringify(datastr);
       var senddata={
         "id":007,
-        "questionnaireTemplateId":'22222',
+        "questionnaireTemplateId":22222,
         "cementFactoryId":'333',
         "productionLine":'东方一线',
-        "jsonContent":data
+        "jsonContent":datastr
 
-      }
-      var senddatastr=angular.toJson(senddata);
-    /*初始化隐藏项*/
-	$scope.submitform=function(){
-    $(window).unbind('beforeunload');//解除绑定的提醒
-    /*    function onlineTostring(obj,itemname){
-            angular.forEach(obj, function(item, index) {
-              itemname.push(item);
-            });
-            itemname=angular.toJson(itemname);
-            return itemname;
-      }*/
-      /*console.log(senddata);
-      console.log(senddatastr);*/
-      $.post('/q/commitQuestionnaireContent.html',{data:senddatastr},function(reponse,status){
+      };
+      senddata=JSON.stringify(senddata);
+      //console.log(data);*/
+      //console.log(datastr);
+      $.post('/q/commitQuestionnaireContent.html',senddata,function(reponse,status){
         console.log("提交成功");
       }).fail(function(){
         console.log("提交失败");
@@ -89,7 +93,7 @@ onlineApp.controller('onlineController',function($scope,$http){
       $(".shengliaomo").eq(shengliaomoIndex).addClass("_hidden");
       shengliaomoIndex=shengliaomoIndex-1;
     }else{
-      console.log("cant cancel");
+      console.log("can't cancel");
     }
 	}
 
@@ -98,7 +102,7 @@ onlineApp.controller('onlineController',function($scope,$http){
       $(".shuinimo").eq(shuinimoIndex).addClass("_hidden");
       shuinimoIndex=shuinimoIndex-1;
     }else{
-      console.log("cant cancel");
+      console.log("can't cancel");
     }
   }
 
