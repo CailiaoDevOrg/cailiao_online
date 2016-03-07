@@ -58,19 +58,19 @@ onlineApp.controller('onlineController',function($scope,$http){
         "questionnaireTemplateId":22222,
         "cementFactoryId":'333',
         "productionLine":'东方一线',
-        "jsonContent":datastr
+       // "jsonContent":''
 
       };
-      senddata=JSON.stringify(senddata);
+      senddata=angular.toJson(senddata);
       //console.log(data);*/
       //console.log(datastr);
-      $.post('/q/commitQuestionnaireContent.html',senddata,function(reponse,status){
-        console.log("提交成功");
-      }).fail(function(){
-        console.log("提交失败");
+      $.ajax({
+    	 url: '/q/commitQuestionnaireContent.html',
+    	 type: 'post',
+    	 data: senddata,
+    	 contentType: 'application/json'
       });
-      
-  };
+	}
   $scope.saveform=function(){
     $.post('/q/saveQuestionnaireContentTemp.html',{data:senddatastr},function(reponse,status){
         console.log("保存成功");

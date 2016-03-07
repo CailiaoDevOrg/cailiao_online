@@ -417,8 +417,8 @@
                                     </div>
                                </div>
                               <!--主要设备结束-->
-                              <input type="submit" value="提 交" class="btn btn-success btn-lg" id="submit" ng-click="submitform()">
-                              <input type="submit" value="保 存" class="btn btn-success btn-lg" id="save" ng-click="saveform()">
+                              <input type="button" value="提 交" class="btn btn-success btn-lg" id="commit" ng-click="submitform()">
+                              <input type="button" value="保 存" class="btn btn-success btn-lg" id="save" ng-click="saveform()">
                             
                           </div>
                         </section><!-- /.content -->
