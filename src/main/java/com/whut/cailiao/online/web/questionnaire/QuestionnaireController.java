@@ -19,7 +19,7 @@ public class QuestionnaireController extends BaseController {
     private QuestionnaireService questionnaireService;
 
     /**
-     * finished
+     * 已经测试
      * 正在使用中的问卷模板列表
      * 从问卷模板的发布表中读取
      */
@@ -31,7 +31,7 @@ public class QuestionnaireController extends BaseController {
     }
 
     /**
-     * finished
+     * 已经测试
      * 根据问卷模板获取用户的填写情况
      * 如果用户没有填写则展示空的问卷模板,如果填写了则展示填写的列表
      * 从问卷表中读取(问卷表不分编辑表和正式表)
@@ -40,12 +40,13 @@ public class QuestionnaireController extends BaseController {
     @RequestMapping(value = "/getQuestionnaireContentList/{questionnaireTemplateId}.html", method = RequestMethod.GET)
     @ResponseBody
     public String getQuestionnaireContentList(@PathVariable int questionnaireTemplateId) {
-        String cementFactoryId = null;
+        String cementFactoryId = "hello";
         ApiResponse response = this.questionnaireService.getQuestionnaireContentList(questionnaireTemplateId, cementFactoryId);
         return convertApiResponseToJSONString(response);
     }
 
     /**
+     * 已经测试
      * 查看填写的问卷的详情
      * @param questionnaireContentId
      * @return
@@ -58,7 +59,7 @@ public class QuestionnaireController extends BaseController {
     }
 
     /**
-     * finished
+     * 已经测试
      * 临时保存用户问卷填写内容
      * 保存到问卷表
      */
@@ -70,6 +71,7 @@ public class QuestionnaireController extends BaseController {
     }
 
     /**
+     * 已经测试
      * 问卷发布
      * 更改问卷表状态
      * @param questionnaireContent
@@ -82,11 +84,12 @@ public class QuestionnaireController extends BaseController {
     }
 
     /**
-     * finished
+     * 已经测试
      * 问卷删除
      * 删除填写错误的问卷
      */
     @RequestMapping(value = "/deleteQuestionnaireContent/{questionnaireContentId}.html", method = RequestMethod.GET)
+    @ResponseBody
     public String deleteQuestionnaireContent(@PathVariable int questionnaireContentId) {
         ApiResponse response = this.questionnaireService.deleteQuestionnaireContent(questionnaireContentId);
         return convertApiResponseToJSONString(response);
