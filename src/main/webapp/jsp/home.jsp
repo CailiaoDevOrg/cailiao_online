@@ -33,13 +33,14 @@
 	 	 	.logintest{ margin-top: 20px; margin-right: 30px;}
 	 	 	.logintest a:hover{ border-radius: 0; background: none;}
 	 	 	.small_input{ width: 80px;}
+	 	 	#footer{ height: 85px; padding: 10px 0;}
 	 	 </style>
 	</head>
 	<body ng-controller="mainController">
 		<div id="nav" >
 		    <ul class="navstyle">
 		       <li class="active"><a href="/jsp/home.jsp">首页</a></li>
-		       <li><a href="/jsp/online.jsp">在线填写</a></li>
+		       <li><a href="javascript:void(0)" id="online_write">在线填写</a></li>
 		       <li><a href="/jsp/offline.jsp">下载填写</a></li>
 		       <li><a href="/jsp/upload.jsp">上传文档</a></li>
 		       <li><a href="/jsp/inquiredata.jsp">查询</a></li>
@@ -47,14 +48,31 @@
 		    </ul>
 	    </div>
 	    <div id="content">
-		<div ng-include="'/jsp/pages/index.html'"></div>
+			<div ng-include="'/jsp/pages/index.html'"></div>
+			<div class="showlist row text-center">
+				<div class="col-sm-4">
+	          		<a href=""><img src="/assets/home/nav-tools.png"></a>
+	        	</div>
+		        <div class="col-sm-4">
+		          	<a href=""><img src="/assets/home/nav-tech.png"></a>
+		        </div>
+		        <div class="col-sm-4">
+		          	<a href=" "><img src="/assets/home/nav-deploy.png"></a>
+		        </div>
+				<ul>
+					<li ng-repeat="item in questionnaireTemplateList" class="col-sm-4 quesList">
+						<div class="questionnarieName"><h3><a href="">{{item.name}}</a></h3></div>
+						<div class="questionnarieId">已有<a style="color:red">{{item.id}}</a>份问卷提交</div>
+						<div class="ques_description">{{item.description}}</div>
+					</li>
+				</ul>
+			</div>
 		</div>
+		<div id="footer"></div>
 		<script type="text/javascript" src="/assets/jquery/jquery.min.js"></script>
 	  	 <script type="text/javascript" src="/assets/angularjs/angular.min.js"></script>
 	  	 <script type="text/javascript" src="/assets/angularjs/angular-route.min.js"></script>
 	    <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>	
-	    <script type="text/javascript" src="/assets/global/homeroute.js"></script>
-	    <script src="/assets/home/jquery.dataTables.js"></script>
-		  <script src="/assets/home/patternfly.min.js"></script>
+	    <script type="text/javascript" src="/assets/home/mainController.js"></script>
 	</body>
 </html>

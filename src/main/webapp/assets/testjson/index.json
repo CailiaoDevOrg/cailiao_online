@@ -1,0 +1,23 @@
+{
+	"retCode":"200",
+	"retDesc":"ok",
+	"body": {
+		"questionnaireTemplateList" : [
+		    {
+		    	"id" : "212222",
+		    	"name" :"问卷1",
+		    	"description":"我国水泥工业环境调查问卷1"
+		    },
+		    {
+		    	"id" : "23222",
+		    	"name" :"问卷2",
+		    	"description":"我国水泥工业环境调查问卷2"
+		    },
+		    {
+		    	"id" : "241111",
+		    	"name" :"问卷3",
+		    	"description":"我国水泥工业环境调查问卷3"
+		    }
+		]	
+	}
+}
