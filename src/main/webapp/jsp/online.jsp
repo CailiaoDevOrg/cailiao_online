@@ -406,7 +406,7 @@
                                                   </tr> 
                                                   <tr class="yao_type">
                                                     <td>窑规格</td>
-                                                    <td>Ф<input type="text" ng-model="majorEquipmentPart.yaoTypeB">*<input ng-model="majorEquipmentPart.yaoTypeA">(m)</td>
+                                                    <td>Ф<input type="text" ng-model="yaoTypeB">*<input ng-model="yaoTypeA">(m)</td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>

@@ -58,6 +58,8 @@ onlineApp.controller('onlineController',function($scope,$http){
     var oneAndTwo='';
     var other='';
     var sNCR='';
+    var yaoTypeB='';
+    var yaoTypeA='';
     function valiUnfined(item,itemvar){
       if(angular.isUndefined(item))
       {
@@ -74,6 +76,8 @@ onlineApp.controller('onlineController',function($scope,$http){
     oneAndTwo=valiUnfined($scope.oneAndTwo,oneAndTwo);
     other=valiUnfined($scope.other,other);
     sNCR=valiUnfined($scope.sNCR,sNCR);
+    yaoTypeB=valiUnfined($scope.yaoTypeB);
+    yaoTypeA=valiUnfined($scope.yaoTypeA);
 
 
     function transList(objList,itermArray){
@@ -111,9 +115,18 @@ onlineApp.controller('onlineController',function($scope,$http){
       other:other,
       sNCR:sNCR
     };
-    /*var exhaustEmissionPart={
-      exhaustEmissionItemList:exhaustEmissionItemList
-    }*/
+    var energyConsumptionPart={};
+    if (angular.isDefined($scope.energyConsumptionPart)) 
+      {
+        energyConsumptionPart=$scope.energyConsumptionPart;
+      };
+
+      var majorEquipmentPart={
+        yaoTypeA:yaoTypeA,
+        yaoTypeB:yaoTypeB,
+        shuinimoList:shuinimoList,
+        shengliaomoList:shengliaomoList
+      }
     var data={
       "id":007,
       "questionnaireTemplateId":22222,
@@ -126,13 +139,12 @@ onlineApp.controller('onlineController',function($scope,$http){
       "clinkerPart" :clinkerPart,
       "cementPart" : cementPart, 
       "fulePart":fulePart,   
-      /*"energyConsumptionPart":energyConsumptionPart,
-      "majorEquipmentPart":majorEquipmentPart,*/
+      "energyConsumptionPart":energyConsumptionPart,
+      "majorEquipmentPart":majorEquipmentPart,
       "exhaustEmissionPart":exhaustEmissionPart
       };
-      console.log(data);
     datastr=angular.toJson(data);
-    console.log(datastr);
+   // console.log(datastr);
       $.ajax({
     	 url: '/q/commitQuestionnaireContent.html',
     	 type: 'post',
