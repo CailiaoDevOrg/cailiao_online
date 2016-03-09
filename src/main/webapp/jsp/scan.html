@@ -30,6 +30,7 @@
             .small_input{ width: 80px;}
             ._hidden{display: none;}
             .table_width{ width: 100px;}
+            .footer{height: 50px;}
          </style>
     </head>
     <body ng-controller="scanController">
@@ -314,64 +315,55 @@
                                                     <th>粉磨方式</th>
                                                     <th>规格型号</th>
                                                     <th>数量</th>
-                                                    <th>操作</th>
+                                                   
                                                   </tr>
                                                   <tr class="shengliaomo">
                                                     <td>生料磨</td>
                                                     <td><input ng-model="shengliaomo[0].way"></td>
                                                     <td>φ<input ng-model="shengliaomo[0].model"></td>
                                                     <td><input ng-model="shengliaomo[0].number"></td>
-                                                    <td>
-                                                      <input type="button" value="增加" id="addshengliaomo" class="btn btn-info" ng-click="addshengliaomo()">
-                                                      <input type="button" value="删除" id="deleteshengliaomo" class="btn btn-warning" ng-click="deleteshengliaomo()">
-                                                    </td>
+                                                    
                                                   </tr>
                                                   <tr class="shengliaomo _hidden">
                                                     <td>生料磨</td>
                                                     <td><input ng-model="shengliaomo[1].way"></td>
                                                     <td>φ<input ng-model="shengliaomo[1].model"></td>
                                                     <td><input ng-model="shengliaomo[1].number"></td>
-                                                    <td></td>
+                                                 
                                                   </tr>
                                                   <tr class="shengliaomo _hidden">
                                                     <td>生料磨</td>
                                                     <td><input ng-model="shengliaomo[2].way"></td>
                                                     <td>φ<input ng-model="shengliaomo[2].model"></td>
                                                     <td><input ng-model="shengliaomo[2].number"></td>
-                                                    <td></td>
+                                                 
                                                   </tr>
                                                   <tr class="shengliaomo _hidden">
                                                     <td>生料磨</td>
                                                     <td><input ng-model="shengliaomo[3].way"></td>
                                                     <td>φ<input ng-model="shengliaomo[3].model"></td>
                                                     <td><input ng-model="shengliaomo[3].number"></td>
-                                                    <td></td>
+                                                
                                                   </tr>
                                                   <tr class="shuinimo">
                                                     <td>水泥磨</td>
                                                     <td><input ng-model="shuinimo[0].way"></td>
                                                     <td>φ<input ng-model="shuinimo[0].model" class="model"></td>
                                                     <td><input ng-model="shuinimo[0].number"></td>
-                                                    <td>
-                                                      <input type="button" value="增加" id="addshuinimo" class="btn btn-info" ng-click="addshuinimo()">
-                                                      <input type="button" value="删除" id="deletshuinimo" class="btn btn-warning" ng-click="deleteshuinimo()">
-                                                    </td>
+                                                    
                                                   </tr> 
                                                   <tr class="shuinimo _hidden">
                                                     <td>水泥磨</td>
                                                     <td><input ng-model="shuinimo[1].way"></td>
                                                     <td>φ<input ng-model="shuinimo[1].model" class="model"></td>
                                                     <td><input ng-model="shuinimo[1].number"></td>
-                                                    <td>
-                                                    </td>
+                                                    
                                                   </tr> 
                                                   <tr class="shuinimo _hidden">
                                                     <td>水泥磨</td>
                                                     <td><input ng-model="shuinimo[2].way"></td>
                                                     <td>φ<input ng-model="shuinimo[2].model" class="model"></td>
                                                     <td><input ng-model="shuinimo[2].number"></td>
-                                                    <td>
-                                                    </td>
                                                   </tr> 
                                                   <tr class="shuinimo _hidden">
                                                     <td>水泥磨</td>
@@ -379,12 +371,9 @@
                                                     <td>φ<input ng-model="shuinimo[3].model" class="model"></td>
                                                     <td><input ng-model="shuinimo[3].number"></td>
                                                     <td>
-                                                    </td>
-                                                  </tr> 
                                                   <tr class="yao_type">
                                                     <td>窑规格</td>
                                                     <td>Ф<input type="text" ng-model="majorEquipmentPart.yaoTypeB">*<input ng-model="majorEquipmentPart.yaoTypeA">(m)</td>
-                                                    <td></td>
                                                     <td></td>
                                                     <td></td>
                                                   </tr>
@@ -399,6 +388,7 @@
                 </div><!-- /.content-wrapper -->
             </div>
         </div>
+        <div class="footer"></div>
         <script type="text/javascript" src="/assets/jquery/jquery.min.js"></script>
          <script type="text/javascript" src="/assets/angularjs/angular.min.js"></script>
         <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>

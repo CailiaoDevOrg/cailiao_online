@@ -117,19 +117,19 @@
                                                 </tr>
                                                 <tr>
                                                   <td class="col-xs-2">熟料名称</td>
-                                                  <td><input ng-model="clinker[0].name"></td>
-                                                  <td><input ng-model="clinker[1].name"></td>
-                                                  <td><input ng-model="clinker[2].name"></td>
-                                                  <td><input ng-model="clinker[3].name"></td>
-                                                  <td><input ng-model="clinker[4].name"></td>
+                                                  <td><input ng-model="clinkerItemList[0].name"></td>
+                                                  <td><input ng-model="clinkerItemList[1].name"></td>
+                                                  <td><input ng-model="clinkerItemList[2].name"></td>
+                                                  <td><input ng-model="clinkerItemList[3].name"></td>
+                                                  <td><input ng-model="clinkerItemList[4].name"></td>
                                                 </tr>
                                                 <tr>
                                                   <td class="col-md-2">消耗情况，万吨/年</td>
-                                                  <td><input ng-model="clinker[0].consume"></td>
-                                                  <td><input ng-model="clinker[1].consume"></td>
-                                                  <td><input ng-model="clinker[2].consume"></td>
-                                                  <td><input ng-model="clinker[3].consume"></td>
-                                                  <td><input ng-model="clinker[4].consume"></td>
+                                                  <td><input ng-model="clinkerItemList[0].wtonsPerYear"></td>
+                                                  <td><input ng-model="clinkerItemList[1].wtonsPerYear"></td>
+                                                  <td><input ng-model="clinkerItemList[2].wtonsPerYear"></td>
+                                                  <td><input ng-model="clinkerItemList[3].wtonsPerYear"></td>
+                                                  <td><input ng-model="clinkerItemList[4].wtonsPerYear"></td>
                                                 </tr> 
                                               </tbody>
                                             </table>
@@ -152,15 +152,15 @@
                                                   </tr>
                                                   <tr>
                                                   <td class="col-md-2">原材料名称</td>
-                                                  <td><input ng-model="fuel[0].name"></td>
-                                                  <td><input ng-model="fuel[1].name"></td>
-                                                  <td><input ng-model="fuel[2].name"></td>
+                                                  <td><input ng-model="fuelList[0].name"></td>
+                                                  <td><input ng-model="fuelList[1].name"></td>
+                                                  <td><input ng-model="fuelList[2].name"></td>
                                                   </tr>
                                                 <tr>
                                                   <td class="col-md-2">消耗情况，万吨/年</td>
-                                                  <td><input ng-model="fuel[0].consume"></td>
-                                                  <td><input ng-model="fuel[1].consume"></td>
-                                                  <td><input ng-model="fuel[2].consume"></td>
+                                                  <td><input ng-model="fuelList[0].wtonsPerYear"></td>
+                                                  <td><input ng-model="fuelList[1].wtonsPerYear"></td>
+                                                  <td><input ng-model="fuelList[2].wtonsPerYear"></td>
                                                 </tr> 
                                               </tbody></table>
                                             </div><!-- /.box-body -->
@@ -184,28 +184,28 @@
                                                       <th>原料5#</th>
                                                     </tr>
                                                     <tr>
-                                                    <td class="col-md-2">原材料名称</td>
-                                                    <td><input ng-model="cement[0].name"></td>
-                                                    <td><input ng-model="cement[1].name"></td>
-                                                    <td><input ng-model="cement[2].name"></td>
-                                                    <td><input ng-model="cement[3].name"></td>
-                                                    <td><input ng-model="cement[4].name"></td>
+                                                      <td class="col-md-2">原材料名称</td>
+                                                      <td><input ng-model="cementStoneList[0].name"></td>
+                                                      <td><input ng-model="cementStoneList[1].name"></td>
+                                                      <td><input ng-model="cementStoneList[2].name"></td>
+                                                      <td><input ng-model="cementStoneList[3].name"></td>
+                                                      <td><input ng-model="cementStoneList[4].name"></td>
                                                     </tr>
                                                     <tr>
                                                       <td class="col-md-2">消耗情况，万吨/年</td>
-                                                      <td><input ng-model="cement[0].consume"></td>
-                                                      <td><input ng-model="cement[1].consume"></td>
-                                                      <td><input ng-model="cement[2].consume"></td>
-                                                      <td><input ng-model="cement[3].consume"></td>
-                                                      <td><input ng-model="cement[4].consume"></td>
+                                                      <td><input ng-model="cementStoneList[0].wtonsPerYear"></td>
+                                                      <td><input ng-model="cementStoneList[1].wtonsPerYear"></td>
+                                                      <td><input ng-model="cementStoneList[2].wtonsPerYear"></td>
+                                                      <td><input ng-model="cementStoneList[3].wtonsPerYear"></td>
+                                                      <td><input ng-model="cementStoneList[4].wtonsPerYear"></td>
                                                     </tr> 
                                                   </tbody>
                                                </table>
                                               </div><!-- /.box-body -->
                                               <div class="production">
                                                 <div class="input-group">
-                                                  <span>熟料产量(万吨/年)</span><span style="color:red">*</span><input type="text" ng-model="clinker.clinkerProduction">
-                                                  <span>水泥产量(万吨/年)</span><span style="color:red">*</span><input type="text" ng-model="cement.cementProduction">
+                                                  <span>熟料产量(万吨/年)</span><span style="color:red">*</span><input type="text" ng-model="clinkerPart.clinkerProduction">
+                                                  <span>水泥产量(万吨/年)</span><span style="color:red">*</span><input type="text" ng-model="cementProduction">
                                                 </div>
                                               </div>
                                            </div>
@@ -233,13 +233,13 @@
                                                   </tr>
                                                 <tr>
                                                   <td >数值</td>
-                                                  <td><input ng-model="energy.powerConsumptionBySlfm"></td>
-                                                  <td><input ng-model="energy.coalConsumptionByKbsl"></td>
-                                                  <td><input ng-model="energy.powerConsumptionByKbsl"></td>
-                                                  <td><input ng-model="energy.energyConsumptionByKbsl"></td>
-                                                   <td><input ng-model="energy.powerConsumptionByKbsn"></td>
-                                                    <td><input ng-model="energy.energyConsumptionByKbsn"></td>
-                                                     <td><input ng-model="energy.powerGenerationUnit"></td>
+                                                  <td><input ng-model="energyConsumptionPart.powerConsumptionBySlfm"></td>
+                                                  <td><input ng-model="energyConsumptionPart.coalConsumptionByKbsl"></td>
+                                                  <td><input ng-model="energyConsumptionPart.powerConsumptionByKbsl"></td>
+                                                  <td><input ng-model="energyConsumptionPart.energyConsumptionByKbsl"></td>
+                                                   <td><input ng-model="energyConsumptionPart.powerConsumptionByKbsn"></td>
+                                                    <td><input ng-model="energyConsumptionPart.energyConsumptionByKbsn"></td>
+                                                     <td><input ng-model="energyConsumptionPart.powerGenerationUnit"></td>
                                                 </tr> 
                                               </tbody></table>
                                             </div><!-- /.box-body -->
@@ -303,21 +303,21 @@
                                         <!--喷氨-->
                                         <div class="otherdata">  
                                           <div id="ammonia_jetting">
-                                            喷氨(kg/t熟料):&nbsp;&nbsp;<input type="text" ng-model="exhaustEmissionPart.ammoniaJetting">
+                                            喷氨(kg/t熟料):&nbsp;&nbsp;<input type="text" ng-model="ammoniaJetting">
                                           </div>
                                           <!--脱硝工艺-->
                                           <div id="denitrification" class="form-inline">
                                             脱硝工艺:
                                             <div class="form-group checkbox">
-                                              <label><input type="checkbox" value="SNCR"  ng-model="exhaustEmissionPart.sNCR"/>SNCR </label>
+                                              <label><input type="checkbox" value="SNCR"  ng-model="sNCR"/>SNCR </label>
                                             </div>
                                             <div class="form-group checkbox">
-                                              <label><input type="checkbox" value="fenjiranshao" ng-model="exhaustEmissionPart.fractionalCombustion" />分级燃烧 </label>
+                                              <label><input type="checkbox" value="fenjiranshao" ng-model="fractionalCombustion" />分级燃烧 </label>
                                             </div>
                                             <div class="form-group checkbox">
-                                              <label><input type="checkbox" value="yijiaer" ng-model="exhaustEmissionPart.oneAndTwo" /><label>1+2 </label>
+                                              <label><input type="checkbox" value="yijiaer" ng-model="oneAndTwo" /><label>1+2 </label>
                                             </div>
-                                            <div class="form-group checkbox"><label><input type="checkbox" value="other" ng-model="exhaustEmissionPart.other" /><label>其他 </label>
+                                            <div class="form-group checkbox"><label><input type="checkbox" value="other" ng-model="other" /><label>其他 </label>
                                             </div>   
                                           </div><!--脱销工艺-->
                                         </div><!--otherdata end-->
@@ -341,9 +341,9 @@
                                                   </tr>
                                                   <tr class="shengliaomo">
                                                     <td>生料磨</td>
-                                                    <td><input ng-model="shengliaomo[0].way"></td>
-                                                    <td>φ<input ng-model="shengliaomo[0].model"></td>
-                                                    <td><input ng-model="shengliaomo[0].number"></td>
+                                                    <td><input ng-model="shengliaomoList[0].way"></td>
+                                                    <td>φ<input ng-model="shengliaomoList[0].model"></td>
+                                                    <td><input ng-model="shengliaomoList[0].number"></td>
                                                     <td>
                                                       <input type="button" value="增加" id="addshengliaomo" class="btn btn-info" ng-click="addshengliaomo()">
                                                       <input type="button" value="删除" id="deleteshengliaomo" class="btn btn-warning" ng-click="deleteshengliaomo()">
@@ -351,30 +351,30 @@
                                                   </tr>
                                                   <tr class="shengliaomo _hidden">
                                                     <td>生料磨</td>
-                                                    <td><input ng-model="shengliaomo[1].way"></td>
-                                                    <td>φ<input ng-model="shengliaomo[1].model"></td>
-                                                    <td><input ng-model="shengliaomo[1].number"></td>
+                                                    <td><input ng-model="shengliaomoList[1].way"></td>
+                                                    <td>φ<input ng-model="shengliaomoList[1].model"></td>
+                                                    <td><input ng-model="shengliaomoList[1].number"></td>
                                                     <td></td>
                                                   </tr>
                                                   <tr class="shengliaomo _hidden">
                                                     <td>生料磨</td>
-                                                    <td><input ng-model="shengliaomo[2].way"></td>
-                                                    <td>φ<input ng-model="shengliaomo[2].model"></td>
-                                                    <td><input ng-model="shengliaomo[2].number"></td>
+                                                    <td><input ng-model="shengliaomoList[2].way"></td>
+                                                    <td>φ<input ng-model="shengliaomoList[2].model"></td>
+                                                    <td><input ng-model="shengliaomoList[2].number"></td>
                                                     <td></td>
                                                   </tr>
                                                   <tr class="shengliaomo _hidden">
                                                     <td>生料磨</td>
-                                                    <td><input ng-model="shengliaomo[3].way"></td>
-                                                    <td>φ<input ng-model="shengliaomo[3].model"></td>
-                                                    <td><input ng-model="shengliaomo[3].number"></td>
+                                                    <td><input ng-model="shengliaomoList[3].way"></td>
+                                                    <td>φ<input ng-model="shengliaomoList[3].model"></td>
+                                                    <td><input ng-model="shengliaomoList[3].number"></td>
                                                     <td></td>
                                                   </tr>
                                                   <tr class="shuinimo">
                                                     <td>水泥磨</td>
-                                                    <td><input ng-model="shuinimo[0].way"></td>
-                                                    <td>φ<input ng-model="shuinimo[0].model" class="model"></td>
-                                                    <td><input ng-model="shuinimo[0].number"></td>
+                                                    <td><input ng-model="shuinimoList[0].way"></td>
+                                                    <td>φ<input ng-model="shuinimoList[0].model" class="model"></td>
+                                                    <td><input ng-model="shuinimoList[0].number"></td>
                                                     <td>
                                                       <input type="button" value="增加" id="addshuinimo" class="btn btn-info" ng-click="addshuinimo()">
                                                       <input type="button" value="删除" id="deletshuinimo" class="btn btn-warning" ng-click="deleteshuinimo()">
@@ -382,25 +382,25 @@
                                                   </tr> 
                                                   <tr class="shuinimo _hidden">
                                                     <td>水泥磨</td>
-                                                    <td><input ng-model="shuinimo[1].way"></td>
-                                                    <td>φ<input ng-model="shuinimo[1].model" class="model"></td>
-                                                    <td><input ng-model="shuinimo[1].number"></td>
+                                                    <td><input ng-model="shuinimoList[1].way"></td>
+                                                    <td>φ<input ng-model="shuinimoList[1].model" class="model"></td>
+                                                    <td><input ng-model="shuinimoList[1].number"></td>
                                                     <td>
                                                     </td>
                                                   </tr> 
                                                   <tr class="shuinimo _hidden">
                                                     <td>水泥磨</td>
-                                                    <td><input ng-model="shuinimo[2].way"></td>
-                                                    <td>φ<input ng-model="shuinimo[2].model" class="model"></td>
-                                                    <td><input ng-model="shuinimo[2].number"></td>
+                                                    <td><input ng-model="shuinimoList[2].way"></td>
+                                                    <td>φ<input ng-model="shuinimoList[2].model" class="model"></td>
+                                                    <td><input ng-model="shuinimoList[2].number"></td>
                                                     <td>
                                                     </td>
                                                   </tr> 
                                                   <tr class="shuinimo _hidden">
                                                     <td>水泥磨</td>
-                                                    <td><input ng-model="shuinimo[3].way"></td>
-                                                    <td>φ<input ng-model="shuinimo[3].model" class="model"></td>
-                                                    <td><input ng-model="shuinimo[3].number"></td>
+                                                    <td><input ng-model="shuinimoList[3].way"></td>
+                                                    <td>φ<input ng-model="shuinimoList[3].model" class="model"></td>
+                                                    <td><input ng-model="shuinimoList[3].number"></td>
                                                     <td>
                                                     </td>
                                                   </tr> 

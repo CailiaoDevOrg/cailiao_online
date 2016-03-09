@@ -9,58 +9,134 @@ onlineApp.controller('onlineController',function($scope,$http){
 
 
   /*定义数据结构*/
-   $scope.exhaustEmissionPart={
+   /*$scope.exhaustEmissionPart={
       ammoniaJetting:""
     };
   $scope.majorEquipmentPart={
-   /* yaoTypeB:"",
-    yaoTypeA:""*/
-  };
-
-    var year=$scope.year;
-    var tons=$scope.tones;
-    var productCompanyName=$scope.productCompanyName;
-    var productLineName=$scope.productLineName;
-
-    
-    
-    
+    yaoTypeB:"",
+    yaoTypeA:""
+  };*/
+  /*$scope.cementPart={
+    cementProduction:"0"
+  };*/
 
     /*初始化隐藏项*/
 	$scope.submitform=function(){
     $(window).unbind('beforeunload');//解除绑定的提醒
-    var clinker=$scope.clinker;
+    var year=$scope.year;
+    var tons=$scope.tones;
+    var productCompanyName=$scope.productCompanyName;
+    var productLineName=$scope.productLineName;
+    /*
     $scope.exhaustEmissionPart.exhaustEmissionItemList = $scope.pp;
-    $scope.majorEquipmentPart.shengliaomo=$scope.shengliaomo;
-    $scope.majorEquipmentPart.shuinimo=$scope.shuinimo;   
-    var datastr={
+    $scope.majorEquipmentPart.shengliaomoList=$scope.shengliaomoList;
+    $scope.majorEquipmentPart.shuinimoList=$scope.shuinimoList;  */
+ 
+    var cementStoneList=[];
+        cementStoneList=transList($scope.cementStoneList,cementStoneList);
+    var clinkerItemList=[];
+        clinkerItemList=transList($scope.clinkerItemList,clinkerItemList);
+    var fuelList=[];
+        fuelList=transList($scope.fuelList,fuelList);
+    var exhaustEmissionItemList=[];
+        angular.forEach($scope.pp,function(item,index)
+        {
+          exhaustEmissionItemList.push({"yearconsume":item.yearconsume,"emitdensity":item.emitdensity,"dedustway":item.dedustway});
+        });
+    
+    var shengliaomoList=[];
+        shengliaomoList=transMainEquip($scope.shengliaomoList,shengliaomoList);
+    var shuinimoList=[];
+        shuinimoList=transMainEquip($scope.shuinimoList,shuinimoList);
+  /*  $scope.majorEquipmentPart.shuinimoList=shuinimoList;
+    $scope.majorEquipmentPart.shengliaomoList=shengliaomoList;*/
+
+    var cementProduction='';
+    var clinkerProduction='';
+    var ammoniaJetting='';
+    var fractionalCombustion='';
+    var oneAndTwo='';
+    var other='';
+    var sNCR='';
+    function valiUnfined(item,itemvar){
+      if(angular.isUndefined(item))
+      {
+        var itemvar='';
+      }else{
+        itemvar=item;
+      };
+      return itemvar;
+    };
+    cementProduction=valiUnfined($scope.cementProduction,cementProduction);
+    clinkerProduction=valiUnfined($scope.cementProduction,clinkerProduction);
+    ammoniaJetting=valiUnfined($scope.ammoniaJetting,ammoniaJetting);
+    fractionalCombustion=valiUnfined($scope.fractionalCombustion,fractionalCombustion);
+    oneAndTwo=valiUnfined($scope.oneAndTwo,oneAndTwo);
+    other=valiUnfined($scope.other,other);
+    sNCR=valiUnfined($scope.sNCR,sNCR);
+
+
+    function transList(objList,itermArray){
+        angular.forEach(objList,function(item,index)
+        {
+          itermArray.push({"name":item.name,"wtonsPerYear":item.wtonsPerYear});
+        });
+      return itermArray;
+    };
+
+    function transMainEquip(objList,itermArray){
+      angular.forEach(objList,function(item,index)
+        {
+          itermArray.push({"way":item.way,"model":item.model,"number":item.number});
+        });
+      return itermArray;
+    }
+
+    var cementPart={
+      cementStoneList:cementStoneList,
+      cementProduction:cementProduction
+    };
+    var clinkerPart={
+      clinkerItemList:clinkerItemList,
+      clinkerProduction:clinkerProduction
+    };
+    var fulePart={
+      fuelList:fuelList
+    };
+    var exhaustEmissionPart={
+      ammoniaJetting:ammoniaJetting,
+      exhaustEmissionItemList:exhaustEmissionItemList,
+      fractionalCombustion:fractionalCombustion,
+      oneAndTwo:oneAndTwo,
+      other:other,
+      sNCR:sNCR
+    };
+    /*var exhaustEmissionPart={
+      exhaustEmissionItemList:exhaustEmissionItemList
+    }*/
+    var data={
+      "id":007,
+      "questionnaireTemplateId":22222,
+      "cementFactoryId":'333',
+      "productionLine":'东方一线',
       "year":year,
       "tons":tons,
       "productCompanyName":productCompanyName,
       "productLineName":productLineName,
-      "clinkerPart" :clinker,
-      "cementPart" : $scope.cement,
-      "fulepart": $scope.fuel,
-      "energyConsumptionPart":$scope.energy,
-      "majorEquipmentPart":$scope.majorEquipmentPart,
-      "exhaustEmissionPart":$scope.exhaustEmissionPart
+      "clinkerPart" :clinkerPart,
+      "cementPart" : cementPart, 
+      "fulePart":fulePart,   
+      /*"energyConsumptionPart":energyConsumptionPart,
+      "majorEquipmentPart":majorEquipmentPart,*/
+      "exhaustEmissionPart":exhaustEmissionPart
       };
-      console.log(shengliaomo);
-      console.log(JSON.stringify($scope.majorEquipmentPart));
-      datastr=JSON.stringify(datastr);
-      //alert(datastr);
-      var senddata={
-        "id":007,
-        "questionnaireTemplateId":22222,
-        "cementFactoryId":'333',
-        "productionLine":'东方一线',
-        "jsonContent":datastr
-      };
-      senddata=angular.toJson(senddata);
+      console.log(data);
+    datastr=angular.toJson(data);
+    console.log(datastr);
       $.ajax({
     	 url: '/q/commitQuestionnaireContent.html',
     	 type: 'post',
-    	 data: senddata,
+    	 data: datastr,
     	 contentType: 'application/json',
        success:function(){
         alert("提交成功！");
@@ -276,5 +352,12 @@ function codeFormatter(value,row,index){
              var id = url.split("?")[1].split("=")[1];
           window.open("./scan.html?="+id,"_blank");
          console.log("ok");
+      },
+      'click .edit': function (e,value,row,index) {
+            var url = window.location.href;
+             var id = url.split("?")[1].split("=")[1];
+          window.open("./edit.html?="+id,"_blank");
+         console.log("ok");
       }
+
     };
