@@ -277,7 +277,9 @@ onlineApp.controller('onlineController',function($scope,$http,$location){
               pageList: [5, 10, 15],
               pageSize:5,
               height:450, 
+              showRefresh : true,
               search: true, //显示搜索框,
+              showColumns : true,
               data:data.body.questionnaireContentList,
               columns: [
                             {

@@ -34,6 +34,8 @@
             .logintest a:hover{ border-radius: 0; background: none;}
             .small_input{ width: 80px;}
             ._hidden{display: none;}
+            #tablelist,#newinput{ margin-bottom: -35px;}
+            #scanlistdiv,#scanlist{ margin-top: 35px;}
          </style>
     </head>
     <body ng-controller="onlineController">
@@ -51,7 +53,7 @@
             <div id="scanlist" class="pull-left" style="width:100%;">
                 <input type="button" value="已填列表" class="btn btn-info" ng-click="showlist()">
             </div>
-            <div id="scanlistdiv">
+            <div id="scanlistdiv" >
                 <div id="newinput" class="pull-left" style="width:100%;">
                     <input type="button" value="添加生产线" class="btn btn-info" ng-click="showrecord()">
                 </div>
