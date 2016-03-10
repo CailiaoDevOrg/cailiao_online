@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
         <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="author" content=""> 
         <!-- 开启高速模式渲染页面 -->
         <meta name="renderer" content="webkit">
         <!-- 项目logo -->
@@ -204,7 +204,7 @@
                                               </div><!-- /.box-body -->
                                               <div class="production">
                                                 <div class="input-group">
-                                                  <span>熟料产量(万吨/年)</span><span style="color:red">*</span><input type="text" ng-model="clinkerPart.clinkerProduction">
+                                                  <span>熟料产量(万吨/年)</span><span style="color:red">*</span><input type="text" ng-model="clinkerProduction">
                                                   <span>水泥产量(万吨/年)</span><span style="color:red">*</span><input type="text" ng-model="cementProduction">
                                                 </div>
                                               </div>
@@ -415,7 +415,10 @@
                                               </table>
                                             </div><!-- /.box-body -->
                                     </div>
+                                  
                                </div>
+
+                               
                               <!--主要设备结束-->
                               <input type="button" value="提 交" class="btn btn-success btn-lg" id="commit" ng-click="submitform()">
                               <input type="button" value="保 存" class="btn btn-success btn-lg" id="save" ng-click="saveform()">

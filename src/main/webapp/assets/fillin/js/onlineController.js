@@ -1,66 +1,16 @@
 var onlineApp=angular.module('onlineApp',[]);
-onlineApp.controller('onlineController',function($scope,$http){
+var id='';
+onlineApp.controller('onlineController',function($scope,$http,$location){
   $("#record_content").css("display","none");
   changedisplay($("#scanlist"),"none");
   changedisplay($("#scanlistdiv"),"block");
-
+  var myUrl = $location.absUrl();
+  id=myUrl.split("?")[1].split("=")[1];
   var shengliaomoIndex=0;//生料磨索引
   var shuinimoIndex=0;//水泥磨索引
-
-
-  /*定义数据结构*/
-   /*$scope.exhaustEmissionPart={
-      ammoniaJetting:""
-    };
-  $scope.majorEquipmentPart={
-    yaoTypeB:"",
-    yaoTypeA:""
-  };*/
-  /*$scope.cementPart={
-    cementProduction:"0"
-  };*/
-
-    /*初始化隐藏项*/
-	$scope.submitform=function(){
-    $(window).unbind('beforeunload');//解除绑定的提醒
-    var year=$scope.year;
-    var tons=$scope.tones;
-    var productCompanyName=$scope.productCompanyName;
-    var productLineName=$scope.productLineName;
-    /*
-    $scope.exhaustEmissionPart.exhaustEmissionItemList = $scope.pp;
-    $scope.majorEquipmentPart.shengliaomoList=$scope.shengliaomoList;
-    $scope.majorEquipmentPart.shuinimoList=$scope.shuinimoList;  */
- 
-    var cementStoneList=[];
-        cementStoneList=transList($scope.cementStoneList,cementStoneList);
-    var clinkerItemList=[];
-        clinkerItemList=transList($scope.clinkerItemList,clinkerItemList);
-    var fuelList=[];
-        fuelList=transList($scope.fuelList,fuelList);
-    var exhaustEmissionItemList=[];
-        angular.forEach($scope.pp,function(item,index)
-        {
-          exhaustEmissionItemList.push({"yearconsume":item.yearconsume,"emitdensity":item.emitdensity,"dedustway":item.dedustway});
-        });
-    
-    var shengliaomoList=[];
-        shengliaomoList=transMainEquip($scope.shengliaomoList,shengliaomoList);
-    var shuinimoList=[];
-        shuinimoList=transMainEquip($scope.shuinimoList,shuinimoList);
-  /*  $scope.majorEquipmentPart.shuinimoList=shuinimoList;
-    $scope.majorEquipmentPart.shengliaomoList=shengliaomoList;*/
-
-    var cementProduction='';
-    var clinkerProduction='';
-    var ammoniaJetting='';
-    var fractionalCombustion='';
-    var oneAndTwo='';
-    var other='';
-    var sNCR='';
-    var yaoTypeB='';
-    var yaoTypeA='';
-    function valiUnfined(item,itemvar){
+   url=$location.absUrl();  //获得url
+    //验证数据是否defined
+   function valiUnfined(item,itemvar){
       if(angular.isUndefined(item))
       {
         var itemvar='';
@@ -69,17 +19,8 @@ onlineApp.controller('onlineController',function($scope,$http){
       };
       return itemvar;
     };
-    cementProduction=valiUnfined($scope.cementProduction,cementProduction);
-    clinkerProduction=valiUnfined($scope.cementProduction,clinkerProduction);
-    ammoniaJetting=valiUnfined($scope.ammoniaJetting,ammoniaJetting);
-    fractionalCombustion=valiUnfined($scope.fractionalCombustion,fractionalCombustion);
-    oneAndTwo=valiUnfined($scope.oneAndTwo,oneAndTwo);
-    other=valiUnfined($scope.other,other);
-    sNCR=valiUnfined($scope.sNCR,sNCR);
-    yaoTypeB=valiUnfined($scope.yaoTypeB);
-    yaoTypeA=valiUnfined($scope.yaoTypeA);
 
-
+    //转换 name 及 wtonsperyear的list放到数组[]
     function transList(objList,itermArray){
         angular.forEach(objList,function(item,index)
         {
@@ -87,64 +28,116 @@ onlineApp.controller('onlineController',function($scope,$http){
         });
       return itermArray;
     };
-
-    function transMainEquip(objList,itermArray){
+    //主要设备部分list放到数组[]
+    function transMainEquip(objList,itermArray){//主要设备部分的转换函数
       angular.forEach(objList,function(item,index)
         {
           itermArray.push({"way":item.way,"model":item.model,"number":item.number});
         });
       return itermArray;
-    }
+    };
 
-    var cementPart={
-      cementStoneList:cementStoneList,
-      cementProduction:cementProduction
-    };
-    var clinkerPart={
-      clinkerItemList:clinkerItemList,
-      clinkerProduction:clinkerProduction
-    };
-    var fulePart={
-      fuelList:fuelList
-    };
-    var exhaustEmissionPart={
-      ammoniaJetting:ammoniaJetting,
-      exhaustEmissionItemList:exhaustEmissionItemList,
-      fractionalCombustion:fractionalCombustion,
-      oneAndTwo:oneAndTwo,
-      other:other,
-      sNCR:sNCR
-    };
-    var energyConsumptionPart={};
-    if (angular.isDefined($scope.energyConsumptionPart)) 
-      {
-        energyConsumptionPart=$scope.energyConsumptionPart;
+    function generateData(){
+      var year=$scope.year;
+      var tons=$scope.tones;
+      var productCompanyName=$scope.productCompanyName;
+      var productLineName=$scope.productLineName;
+      var cementStoneList=[];
+          cementStoneList=transList($scope.cementStoneList,cementStoneList);
+      var clinkerItemList=[];
+          clinkerItemList=transList($scope.clinkerItemList,clinkerItemList);
+      var fuelList=[];
+          fuelList=transList($scope.fuelList,fuelList);
+      var exhaustEmissionItemList=[];
+          angular.forEach($scope.pp,function(item,index)
+          {
+            exhaustEmissionItemList.push({"yearconsume":item.yearconsume,"emitdensity":item.emitdensity,"dedustway":item.dedustway});
+          });
+      
+      var shengliaomoList=[];
+          shengliaomoList=transMainEquip($scope.shengliaomoList,shengliaomoList);
+      var shuinimoList=[];
+          shuinimoList=transMainEquip($scope.shuinimoList,shuinimoList);
+      var cementProduction='';
+      var clinkerProduction='';
+      var ammoniaJetting='';
+      var fractionalCombustion='';
+      var oneAndTwo='';
+      var other='';
+      var sNCR='';
+      var yaoTypeB='';
+      var yaoTypeA='';
+     
+      cementProduction=valiUnfined($scope.cementProduction,cementProduction);
+      clinkerProduction=valiUnfined($scope.clinkerProduction,clinkerProduction);
+      ammoniaJetting=valiUnfined($scope.ammoniaJetting,ammoniaJetting);
+      fractionalCombustion=valiUnfined($scope.fractionalCombustion,fractionalCombustion);
+      oneAndTwo=valiUnfined($scope.oneAndTwo,oneAndTwo);
+      other=valiUnfined($scope.other,other);
+      sNCR=valiUnfined($scope.sNCR,sNCR);
+      yaoTypeB=valiUnfined($scope.yaoTypeB);
+      yaoTypeA=valiUnfined($scope.yaoTypeA);
+
+      var cementPart={
+        cementStoneList:cementStoneList,
+        cementProduction:cementProduction
       };
+      var clinkerPart={
+        clinkerItemList:clinkerItemList,
+        clinkerProduction:clinkerProduction
+      };
+      var fulePart={
+        fuelList:fuelList
+      };
+      var exhaustEmissionPart={
+        ammoniaJetting:ammoniaJetting,
+        exhaustEmissionItemList:exhaustEmissionItemList,
+        fractionalCombustion:fractionalCombustion,
+        oneAndTwo:oneAndTwo,
+        other:other,
+        sNCR:sNCR
+      };
+      var energyConsumptionPart={};
+      if (angular.isDefined($scope.energyConsumptionPart)) 
+        {
+          energyConsumptionPart=$scope.energyConsumptionPart;
+        };
 
       var majorEquipmentPart={
         yaoTypeA:yaoTypeA,
         yaoTypeB:yaoTypeB,
         shuinimoList:shuinimoList,
         shengliaomoList:shengliaomoList
-      }
-    var data={
-      "id":007,
-      "questionnaireTemplateId":22222,
-      "cementFactoryId":'333',
-      "productionLine":'东方一线',
-      "year":year,
-      "tons":tons,
-      "productCompanyName":productCompanyName,
-      "productLineName":productLineName,
-      "clinkerPart" :clinkerPart,
-      "cementPart" : cementPart, 
-      "fulePart":fulePart,   
-      "energyConsumptionPart":energyConsumptionPart,
-      "majorEquipmentPart":majorEquipmentPart,
-      "exhaustEmissionPart":exhaustEmissionPart
       };
-    datastr=angular.toJson(data);
-   // console.log(datastr);
+
+      var data={
+        "clinkerPart" :clinkerPart,
+        "cementPart" : cementPart, 
+        "fulePart":fulePart,   
+        "energyConsumptionPart":energyConsumptionPart,
+        "majorEquipmentPart":majorEquipmentPart,
+        "exhaustEmissionPart":exhaustEmissionPart
+        };
+
+        data=angular.toJson(data);
+        var datastr={
+          "id":"",
+        "questionnaireTemplateId":1,
+        "year":year,
+        "tons":tons,
+        "productCompanyName":productCompanyName,
+        "productLineName":productLineName,
+        "jsonContent":data
+        };
+      datastr=angular.toJson(datastr);
+      console.log(datastr);
+      return datastr;
+    }
+
+    /*初始化隐藏项*/
+	$scope.submitform=function(){
+    $(window).unbind('beforeunload');//解除绑定的提醒
+      var datastr=generateData();
       $.ajax({
     	 url: '/q/commitQuestionnaireContent.html',
     	 type: 'post',
@@ -159,35 +152,11 @@ onlineApp.controller('onlineController',function($scope,$http){
       });
 	}
   $scope.saveform=function(){
-    $(window).unbind('beforeunload');
-    var clinker=$scope.clinker;
-    var datastr={
-      "year":year,
-      "tons":tons,
-      "productCompanyName":productCompanyName,
-      "productLineName":productLineName,
-      "clinkerPart" :clinker,
-      "cementPart" : $scope.cement,
-      "fulepart": $scope.fuel,
-      "energyConsumptionPart":$scope.energy,
-      "majorEquipmentPart":$scope.majorEquipmentPart,
-      "exhaustEmissionPart":$scope.exhaustEmissionPart
-      };
-      
-      datastr=JSON.stringify(datastr);
-      //alert(datastr);
-      var senddata={
-        "id":007,
-        "questionnaireTemplateId":22222,
-        "cementFactoryId":'333',
-        "productionLine":'东方一线',
-        "jsonContent":datastr
-      };
-      senddata=angular.toJson(senddata);
+     var datastr=generateData();
     $.ajax({
        url: '/q/saveQuestionnaireContentTemp.html',
        type: 'post',
-       data: senddata,
+       data: datastr,
        contentType: 'application/json',
        success:function(){
         alert("保存成功！");
@@ -196,7 +165,7 @@ onlineApp.controller('onlineController',function($scope,$http){
         alert("保存失败！");
        }
       })
-  }
+  };
 	$scope.addshengliaomo=function(){
     shengliaomoIndex=shengliaomoIndex+1;
     $(".shengliaomo").eq(shengliaomoIndex).removeClass("_hidden");
@@ -210,6 +179,10 @@ onlineApp.controller('onlineController',function($scope,$http){
 	$scope.deleteshengliaomo=function(){
 		if(shengliaomoIndex>0){
       $(".shengliaomo").eq(shengliaomoIndex).addClass("_hidden");
+      $(".shengliaomo").eq(shengliaomoIndex).children("td").children("input").val("");
+    /*  var sindex=parseInt(shengliaomoIndex);
+      $scope.shengliaomoList[sindex].way='';*/
+
       shengliaomoIndex=shengliaomoIndex-1;
     }else{
       console.log("can't cancel");
@@ -237,9 +210,6 @@ onlineApp.controller('onlineController',function($scope,$http){
     changedisplay($("#record_content"),"none");
     changedisplay($("#scanlist"),"none");
   }
-
- 
-
   function changedisplay(elem,display){
     elem.css("display",display);
   }
@@ -247,61 +217,68 @@ onlineApp.controller('onlineController',function($scope,$http){
 });/*controller 结束*/
 
   $(function(){
-    /*function get_result_view_template()
-      {
-      return{
-              //dataType: "json",
-              pagination: true, //分页
-              pageList: [5, 10, 15],
-              pageSize:5,
-              height:450, 
-              search: true, //显示搜索框
-              columns: [
-                            {
-                               title: '编号',
-                                field: 'code',
-                                width:20,
-                                formatter:codeFormatter
-                            }, 
-                            {
-                               title: '生产线',
-                                field: 'productline',
-                                width:150
-                            }, 
-                            {
-                                title: '提交时间',
-                                field: 'submittime',
-                                align: 'center',
-                                width:80
-                               
-                            }, 
-                            {
-                                title: '审核状态',
-                                field: 'option1',
-                                align: 'center',
-                                width:60
-                            },
-                            {
-                                title: '操作状态',
-                                field: 'option2',
-                                align: 'center',
-                                width:60,
-                                formatter:operateFormatter,
-                                events:editEvents
-                            }
-                ]
-              }
-    }*/
-    /*var onlinelist_view = new MGeneralTableTool.MGeneralTable();
-    onlinelist_view.CreateTable('online_table',get_result_view_template(),"./index.php?r=result/load-result-items",{},true);*/
+    var data={
+    "retCode": 200,
+    "retDesc": "SUCCESS",
+    "body": {
+        "questionnaireContentList": [
+            {
+                "id": 1,
+                "questionnaireTemplateId": 2,
+                "cementFactoryId": "xxxs水泥厂",
+                "productionLine": "xxx生产线",
+                "modifyTime": "",
+                //时间戳
+                "lastModifyTime": "",
+                //时间戳
+                "jsonContent": "",
+                //这就是之前你保存的数据里面的那个jsonContent
+                "status": 2,
+                "rejectReason": "通过"
+            },
+            {
+                "id": 2,
+                "questionnaireTemplateId": 2,
+                "cementFactoryId": "xxxs水泥厂",
+                "productionLine": "xxx生产线",
+                "modifyTime": "",
+                //时间戳
+                "lastModifyTime": "",
+                //时间戳
+                "jsonContent": "",
+                //这就是之前你保存的数据里面的那个jsonContent
+                "status": 1,
+                "rejectReason": "通过"
+            },
+            {
+                "id": 4,
+                "questionnaireTemplateId": 4,
+                "cementFactoryId": "xxxs水泥厂",
+                "productionLine": "xxx生产线",
+                "modifyTime": "",
+                //时间戳
+                "lastModifyTime": "",
+                //时间戳
+                "jsonContent": "",
+                //这就是之前你保存的数据里面的那个jsonContent
+                "status": 3,
+                "rejectReason": "通过"
+            }
+            
+        ]
+    }
+};
+
+
     $("#online_table").bootstrapTable({
-              url:"/assets/testjson/data.json",
+              //url:"/assets/testjson/data.json",
               dataType: "json",
               pagination: true, //分页
               pageList: [5, 10, 15],
               pageSize:5,
               height:450, 
-              search: true, //显示搜索框
+              search: true, //显示搜索框,
+              data:data.body.questionnaireContentList,
               columns: [
                             {
                                title: '编号',
@@ -311,25 +288,31 @@ onlineApp.controller('onlineController',function($scope,$http){
                             }, 
                             {
                                title: '生产线',
-                                field: 'productline',
+                                field: 'productionLine',
+                                width:150
+                            }, 
+                            {
+                               title: '水泥厂',
+                                field: 'cementFactoryId',
                                 width:150
                             }, 
                             {
                                 title: '提交时间',
-                                field: 'submittime',
+                                field: 'modifyTime',
                                 align: 'center',
                                 width:80
                                
                             }, 
                             {
-                                title: '审核状态',
-                                field: 'option1',
+                                title: '最近修改',
+                                field: 'lastModifyTime',
                                 align: 'center',
-                                width:60
-                            },
+                                width:80
+                               
+                            }, 
                             {
                                 title: '操作状态',
-                                field: 'option2',
+                                field: 'status',
                                 align: 'center',
                                 width:60,
                                 formatter:operateFormatter,
@@ -342,32 +325,25 @@ onlineApp.controller('onlineController',function($scope,$http){
     /*$(window).bind('beforeunload',function(){
       return '您输入的内容尚未提交，确定离开此页面吗？';
     });*/
-});
+  });
 function codeFormatter(value,row,index){
       return index+1;
     };
 
     function operateFormatter(value, row, index) {
-      if(value!='pass'){
+      if(value==2||value==3){
         return ['<input type="button" value="查看" class="btn btn-info scan" data-method="post">']
       } else{
         return ['<input type="button" value="编辑" class="btn btn-primary edit" data-method="post">']
       }    
     };
-
-            /*var url = window.location.href;
-             var id = url.split("?")[1].split("=")[1];*/
              
     window.editEvents = {
-      'click .scan': function (e,value,row,index) {
-            var url = window.location.href;
-             var id = url.split("?")[1].split("=")[1];
+      'click .scan': function (e,value,row,index) {      
           window.open("./scan.html?="+id,"_blank");
          console.log("ok");
       },
-      'click .edit': function (e,value,row,index) {
-            var url = window.location.href;
-             var id = url.split("?")[1].split("=")[1];
+      'click .edit': function (e,value,row,index) {   
           window.open("./edit.html?="+id,"_blank");
          console.log("ok");
       }

@@ -50,7 +50,7 @@
 	    <div id="content">
 			<div ng-include="'/jsp/pages/index.html'"></div>
 			<div class="showlist row text-center">
-				<div class="col-sm-4">
+				<!-- <div class="col-sm-4">
 	          		<a href=""><img src="/assets/home/nav-tools.png"></a>
 	        	</div>
 		        <div class="col-sm-4">
@@ -58,7 +58,7 @@
 		        </div>
 		        <div class="col-sm-4">
 		          	<a href=" "><img src="/assets/home/nav-deploy.png"></a>
-		        </div>
+		        </div> -->
 				<ul>
 					<li ng-repeat="item in questionnaireTemplateList" class="col-sm-4 quesList">
 						<div class="questionnarieName"><h3><a href="">{{item.name}}</a></h3></div>

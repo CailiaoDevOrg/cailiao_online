@@ -1,65 +1,48 @@
 {
-"data":
-[
-{
-"productline" : "1生产线",
-"submittime" : "2016-3-3",
-"option1" : "edible",
-"option2":"pass"
-},
-{
-"productline" : "2生产线",
-"submittime" : "2016-3-3",
-"option1" : "edible",
-"option2":"disabled"
-},
-{
-"productline" : "3生产线",
-"submittime" : "2016-3-3",
-"option1" : "edible",
-"option2":"disabled"
-},
-{
-"productline" : "4生产线",
-"submittime" : "2016-3-3",
-"option1" : "edible",
-"option2":"pass"
-},
-{
-"productline" : "5生产线",
-"submittime" : "2016-3-3",
-"option1" : "edible",
-"option2":"pass"
-},
-{
-"productline" : "6生产线",
-"submittime" : "2016-3-3",
-"option1" : "edible",
-"option2":"pass"
-},
-{
-"productline" : "7生产线",
-"submittime" : "2016-3-3",
-"option1" : "edible",
-"option2":"pass"
-},
-{
-"productline" : "8生产线",
-"submittime" : "2016-3-3",
-"option1" : "edible",
-"option2":"pass"
-},
-{
-"productline" : "9生产线",
-"submittime" : "2016-3-3",
-"option1" : "edible",
-"option2":"pass"
-},
-{
-"productline" : "10生产线",
-"submittime" : "2016-3-3",
-"option1" : "edible",
-"option2":"pass"
-}
-]
+    "retCode": 200,
+    "retDesc": "SUCCESS",
+    "body": {
+        "questionnaireContentList": [
+            {
+                "id": 1,
+                "questionnaireTemplateId": 2,
+                "cementFactoryId": "xxxs水泥厂",
+                "productionLine": "xxx生产线",
+                "modifyTime": "",
+                //时间戳
+                "lastModifyTime": "",
+                //时间戳
+                "jsonContent": "",
+                //这就是之前你保存的数据里面的那个jsonContent"status": 2,
+                "rejectReason": "通过"
+            },
+            {
+                "id": 2,
+                "questionnaireTemplateId": 2,
+                "cementFactoryId": "xxxs水泥厂",
+                "productionLine": "xxx生产线",
+                "modifyTime": "",
+                //时间戳
+                "lastModifyTime": "",
+                //时间戳
+                "jsonContent": "",
+                //这就是之前你保存的数据里面的那个jsonContent"status": 2,
+                "rejectReason": "通过"
+            },
+            {
+                "id": 4,
+                "questionnaireTemplateId": 4,
+                "cementFactoryId": "xxxs水泥厂",
+                "productionLine": "xxx生产线",
+                "modifyTime": "",
+                //时间戳
+                "lastModifyTime": "",
+                //时间戳
+                "jsonContent": "",
+                //这就是之前你保存的数据里面的那个jsonContent"status": 2,
+                "rejectReason": "通过"
+            }
+            
+        ]
+    }
 }

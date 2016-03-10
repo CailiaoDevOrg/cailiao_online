@@ -1,105 +1,112 @@
-{ "records":{
-	    	"cementStonePart": {
-		        "cementProduction": 11,
-		        "cementStoneList": [
-		            {
-		                "name": "cementStone1",
-		                "wtonsPerYear": 34.3
-		            },
-		            {
-		                "name": "cementStone2",
-		                "wtonsPerYear": 33.3
-		            }
-		        ]
-		        
-	    	},
-	   		"clinkerPart": {
-	   			"clinkerProduction": 0,
-		        "clinkerItemList":[
-		            {
-		                "name": "clinkerItem1",
-		                "wtonsPerYear": 12.8
-		            },
-		            {
-		                "name": "clinkertStone2",
-		                "wtonsPerYear": 33.3
-		            }
-		        ]
-		    },
-		    "fuelPart": {
-		        "fuelList":[
-		            {
-		                "name": "fuelItem1",
-		                "wtonsPerYear": 12.8
-		            },
-		            {
-		                "name": "fuelStone2",
-		                "wtonsPerYear": 33.3
-		            }
-		        ]
-		    },
-	    "energyConsumptionPart": {
-	        "coalConsumptionByKbsl": 12.3,
-	        "energyConsumptionByKbsl": 23.4,
-	        "energyConsumptionByKbsn": 34.5,
-	        "powerConsumptionByKbsl": 23,
-	        "powerConsumptionByKbsn": 45,
-	        "powerConsumptionBySlfm": 67,
-	        "powerGenerationUnit": 11
-	    },
-	    "exhaustEmissionPart": {
-	        "ammoniaJetting": 123,
-	        "exhaustEmissionItemList": [
-			    {
-			        "yearconsume": "33",
-			        "emitdensity": "21",
-			        "dedustway": "w"
-			    },
-			    {
-			        "yearconsume": "33",
-			        "emitdensity": "44",
-			        "dedustway": "66"
-			    },
-			    {
-			        "yearconsume": "55",
-			        "emitdensity": "55",
-			        "dedustway": "44"
-			    }
-	        ],
-	        "fractionalCombustion": false,
-	        "oneAndTwo": true,
-	        "other": false,
-	        "sNCR": true
-	    },
-	   "majorEquipmentPart": {
-		    "yaoTypeB": "4.8",
-		    "yaoTypeA": "73",
-		    "shengliaomoList": [
-		         {
-		            "way": "辊压机预粉磨系统",
-		            "model": "3.0x11",
-		            "number": "1"
-		        },
-		  
-		   		{
-		            "way": "辊压机预粉磨系统",
-		            "model": "4.2x11",
-		            "number": "2"
-		        }],
-			"shuinimoList":[ 
-			    {
-		            "way": "辊压机预粉磨系统",
-		            "model": "4.2x13",
-		            "number": "2"
-		        }
-			]
-		},
-	    "id": 1,
-	    "questionnaireId": 2,
-	    "tons": 12.5,
-	    "year": 2016 ,
-	    "productCompanyName":"红星厂" ,
-	    "productLineName":"第一生产线"
-
-	}
+{
+    "retCode": "200",
+    "retDesc": "ok",
+    "body": {
+        "questionnaireTemplateList": [
+            {
+                "records": {
+                    "cementStonePart": {
+                        "cementProduction": 11,
+                        "cementStoneList": [
+                            {
+                                "name": "cementStone1",
+                                "wtonsPerYear": 34.3
+                            },
+                            {
+                                "name": "cementStone2",
+                                "wtonsPerYear": 33.3
+                            }
+                        ]
+                    },
+                    "clinkerPart": {
+                        "clinkerProduction": 0,
+                        "clinkerItemList": [
+                            {
+                                "name": "clinkerItem1",
+                                "wtonsPerYear": 12.8
+                            },
+                            {
+                                "name": "clinkertStone2",
+                                "wtonsPerYear": 33.3
+                            }
+                        ]
+                    },
+                    "fuelPart": {
+                        "fuelList": [
+                            {
+                                "name": "fuelItem1",
+                                "wtonsPerYear": 12.8
+                            },
+                            {
+                                "name": "fuelStone2",
+                                "wtonsPerYear": 33.3
+                            }
+                        ]
+                    },
+                    "energyConsumptionPart": {
+                        "coalConsumptionByKbsl": 12.3,
+                        "energyConsumptionByKbsl": 23.4,
+                        "energyConsumptionByKbsn": 34.5,
+                        "powerConsumptionByKbsl": 23,
+                        "powerConsumptionByKbsn": 45,
+                        "powerConsumptionBySlfm": 67,
+                        "powerGenerationUnit": 11
+                    },
+                    "exhaustEmissionPart": {
+                        "ammoniaJetting": 123,
+                        "exhaustEmissionItemList": [
+                            {
+                                "yearconsume": "33",
+                                "emitdensity": "21",
+                                "dedustway": "w"
+                            },
+                            {
+                                "yearconsume": "33",
+                                "emitdensity": "44",
+                                "dedustway": "66"
+                            },
+                            {
+                                "yearconsume": "55",
+                                "emitdensity": "55",
+                                "dedustway": "44"
+                            }
+                        ],
+                        "fractionalCombustion": false,
+                        "oneAndTwo": true,
+                        "other": false,
+                        "sNCR": true
+                    },
+                    "majorEquipmentPart": {
+                        "yaoTypeB": "4.8",
+                        "yaoTypeA": "73",
+                        "shengliaomoList": [
+                            {
+                                "way": "辊压机预粉磨系统",
+                                "model": "3.0x11",
+                                "number": "1"
+                            },
+                            {
+                                "way": "辊压机预粉磨系统",
+                                "model": "4.2x11",
+                                "number": "2"
+                            }
+                        ],
+                        "shuinimoList": [
+                            {
+                                "way": "辊压机预粉磨系统",
+                                "model": "4.2x13",
+                                "number": "2"
+                            }
+                        ]
+                    },
+                    "id": "",
+                    "questionnaireId": 1,
+                    "tons": 12.5,
+                    "year": 2016,
+                    "productCompanyName": "红星厂",
+                    "productLineName": "第一生产线"
+                }
+            }
+        ]
+    }
 }
