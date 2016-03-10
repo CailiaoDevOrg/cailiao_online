@@ -1,63 +1,186 @@
 var onlineApp=angular.module('onlineApp',[]);
 onlineApp.controller('onlineController',function($scope,$http){
-
+  var enablechangeyear='';
+  changedisplay($("#record_content"),"block");
   var shengliaomoIndex=0;//生料磨索引
   var shuinimoIndex=0;//水泥磨索引
+  
+  $http.get("/assets/testjson/scan.json").success(function(response){
+    //alert(angular.toJson(response));
+    if (response != null && response.retCode == 200
+      && response.body != null) 
+    {
+        var responsedata=response.body;
+        var questionnaireTemplateList=responsedata.questionnaireTemplateList;
+        var records=questionnaireTemplateList[0].records;
+        var test=records;
+        $scope.year=test.year;
+       // enablechangeyear=test.year;
+        $scope.tons=test.tons;
+        $scope.productLineName=test.productLineName;
+        $scope.productCompanyName=test.productCompanyName;
+        $scope.clinkerItemList=test.clinkerPart.clinkerItemList;
+
+        $scope.cementStoneList=test.cementStonePart.cementStoneList;
+        $scope.fuelList=test.fuelPart.fuelList;
+        $scope.clinkerProduction=test.clinkerPart.clinkerProduction;
+        $scope.cementProduction=test.cementStonePart.cementProduction;
+        $scope.energyConsumptionPart=test.energyConsumptionPart;
+
+        $scope.exhaustEmissionPart=test.exhaustEmissionPart;
+        $scope.ammoniaJetting=test.exhaustEmissionPart.ammoniaJetting;
+        $scope.sNCR=test.exhaustEmissionPart.sNCR;
+        $scope.fractionalCombustion=test.exhaustEmissionPart.fractionalCombustion;
+        $scope.oneAndTwo=test.exhaustEmissionPart.oneAndTwo;
+        $scope.other=test.exhaustEmissionPart.other;
+
+        $scope.pp=test.exhaustEmissionPart.exhaustEmissionItemList;
+        $scope.fractionalCombustion=test.exhaustEmissionPart.exhaustEmissionPart;
+        $scope.majorEquipmentPart=test.majorEquipmentPart;
+        $scope.shuinimoList=test.majorEquipmentPart.shuinimoList;
+        $scope.shengliaomoList=test.majorEquipmentPart.shengliaomoList;
+        $scope.yaoTypeA=test.majorEquipmentPart.yaoTypeA;
+        $scope.yaoTypeB=test.majorEquipmentPart.yaoTypeB;
+    } 
+  });
 
 
-  /*定义数据结构*/
-   $scope.exhaustEmissionPart={
-      ammoniaJetting:""
+
+      //验证数据是否defined
+    function valiUnfined(item,itemvar){
+      if(angular.isUndefined(item))
+      {
+        var itemvar='';
+      }else{
+        itemvar=item;
+      };
+      return itemvar;
     };
-  $scope.majorEquipmentPart={
-   /* yaoTypeB:"",
-    yaoTypeA:""*/
-  };
 
-    var year=$scope.year;
-    var tons=$scope.tones;
-    var productCompanyName=$scope.productCompanyName;
-    var productLineName=$scope.productLineName;
+    //转换 name 及 wtonsperyear的list放到数组[]
+    function transList(objList,itermArray){
+        angular.forEach(objList,function(item,index)
+        {
+          itermArray.push({"name":item.name,"wtonsPerYear":item.wtonsPerYear});
+        });
+      return itermArray;
+    };
+    //主要设备部分list放到数组[]
+    function transMainEquip(objList,itermArray){//主要设备部分的转换函数
+      angular.forEach(objList,function(item,index)
+        {
+          itermArray.push({"way":item.way,"model":item.model,"number":item.number});
+        });
+      return itermArray;
+    };
 
-    
-    
-    
+    function generateData(){
+      var year=$scope.year;
+      var tons=$scope.tones;
+      var productCompanyName=$scope.productCompanyName;
+      var productLineName=$scope.productLineName;
+      var cementStoneList=[];
+          cementStoneList=transList($scope.cementStoneList,cementStoneList);
+      var clinkerItemList=[];
+          clinkerItemList=transList($scope.clinkerItemList,clinkerItemList);
+      var fuelList=[];
+          fuelList=transList($scope.fuelList,fuelList);
+      var exhaustEmissionItemList=[];
+          angular.forEach($scope.pp,function(item,index)
+          {
+            exhaustEmissionItemList.push({"yearconsume":item.yearconsume,"emitdensity":item.emitdensity,"dedustway":item.dedustway});
+          });
+      
+      var shengliaomoList=[];
+          shengliaomoList=transMainEquip($scope.shengliaomoList,shengliaomoList);
+      var shuinimoList=[];
+          shuinimoList=transMainEquip($scope.shuinimoList,shuinimoList);
+      var cementProduction='';
+      var clinkerProduction='';
+      var ammoniaJetting='';
+      var fractionalCombustion='';
+      var oneAndTwo='';
+      var other='';
+      var sNCR='';
+      var yaoTypeB='';
+      var yaoTypeA='';
+     
+      cementProduction=valiUnfined($scope.cementProduction,cementProduction);
+      clinkerProduction=valiUnfined($scope.clinkerProduction,clinkerProduction);
+      ammoniaJetting=valiUnfined($scope.ammoniaJetting,ammoniaJetting);
+      fractionalCombustion=valiUnfined($scope.fractionalCombustion,fractionalCombustion);
+      oneAndTwo=valiUnfined($scope.oneAndTwo,oneAndTwo);
+      other=valiUnfined($scope.other,other);
+      sNCR=valiUnfined($scope.sNCR,sNCR);
+      yaoTypeB=valiUnfined($scope.yaoTypeB);
+      yaoTypeA=valiUnfined($scope.yaoTypeA);
 
-    /*初始化隐藏项*/
+      var cementPart={
+        cementStoneList:cementStoneList,
+        cementProduction:cementProduction
+      };
+      var clinkerPart={
+        clinkerItemList:clinkerItemList,
+        clinkerProduction:clinkerProduction
+      };
+      var fulePart={
+        fuelList:fuelList
+      };
+      var exhaustEmissionPart={
+        ammoniaJetting:ammoniaJetting,
+        exhaustEmissionItemList:exhaustEmissionItemList,
+        fractionalCombustion:fractionalCombustion,
+        oneAndTwo:oneAndTwo,
+        other:other,
+        sNCR:sNCR
+      };
+      var energyConsumptionPart={};
+      if (angular.isDefined($scope.energyConsumptionPart)) 
+        {
+          energyConsumptionPart=$scope.energyConsumptionPart;
+        };
+
+      var majorEquipmentPart={
+        yaoTypeA:yaoTypeA,
+        yaoTypeB:yaoTypeB,
+        shuinimoList:shuinimoList,
+        shengliaomoList:shengliaomoList
+      };
+
+      var data={
+        "clinkerPart" :clinkerPart,
+        "cementPart" : cementPart, 
+        "fulePart":fulePart,   
+        "energyConsumptionPart":energyConsumptionPart,
+        "majorEquipmentPart":majorEquipmentPart,
+        "exhaustEmissionPart":exhaustEmissionPart
+        };
+
+        data=angular.toJson(data);
+        var datastr={
+          "id":"",
+        "questionnaireTemplateId":1,
+        "year":year,
+        "tons":tons,
+        "productCompanyName":productCompanyName,
+        "productLineName":productLineName,
+        "jsonContent":data
+        };
+      datastr=angular.toJson(datastr);
+      console.log(datastr);
+      return datastr;
+    };
+
+
+
+   /*初始化隐藏项*/
 	$scope.submitform=function(){
     $(window).unbind('beforeunload');//解除绑定的提醒
-    var clinker=$scope.clinker;
-    $scope.exhaustEmissionPart.exhaustEmissionItemList = $scope.pp;
-    $scope.majorEquipmentPart.shengliaomo=$scope.shengliaomo;
-    $scope.majorEquipmentPart.shuinimo=$scope.shuinimo;   
-    var datastr={
-      "year":year,
-      "tons":tons,
-      "productCompanyName":productCompanyName,
-      "productLineName":productLineName,
-      "clinkerPart" :clinker,
-      "cementPart" : $scope.cement,
-      "fulepart": $scope.fuel,
-      "energyConsumptionPart":$scope.energy,
-      "majorEquipmentPart":$scope.majorEquipmentPart,
-      "exhaustEmissionPart":$scope.exhaustEmissionPart
-      };
-      console.log(shengliaomo);
-      console.log(JSON.stringify($scope.majorEquipmentPart));
-      datastr=JSON.stringify(datastr);
-      //alert(datastr);
-      var senddata={
-        "id":007,
-        "questionnaireTemplateId":22222,
-        "cementFactoryId":'333',
-        "productionLine":'东方一线',
-        "jsonContent":datastr
-      };
-      senddata=angular.toJson(senddata);
+      var datastr=generateData();
       $.ajax({
     	 url: '/q/commitQuestionnaireContent.html',
     	 type: 'post',
-    	 data: senddata,
+    	 data: datastr,
     	 contentType: 'application/json',
        success:function(){
         alert("提交成功！");
@@ -69,34 +192,11 @@ onlineApp.controller('onlineController',function($scope,$http){
 	}
   $scope.saveform=function(){
     $(window).unbind('beforeunload');
-    var clinker=$scope.clinker;
-    var datastr={
-      "year":year,
-      "tons":tons,
-      "productCompanyName":productCompanyName,
-      "productLineName":productLineName,
-      "clinkerPart" :clinker,
-      "cementPart" : $scope.cement,
-      "fulepart": $scope.fuel,
-      "energyConsumptionPart":$scope.energy,
-      "majorEquipmentPart":$scope.majorEquipmentPart,
-      "exhaustEmissionPart":$scope.exhaustEmissionPart
-      };
-      
-      datastr=JSON.stringify(datastr);
-      //alert(datastr);
-      var senddata={
-        "id":007,
-        "questionnaireTemplateId":22222,
-        "cementFactoryId":'333',
-        "productionLine":'东方一线',
-        "jsonContent":datastr
-      };
-      senddata=angular.toJson(senddata);
+    var datastr=generateData();
     $.ajax({
        url: '/q/saveQuestionnaireContentTemp.html',
        type: 'post',
-       data: senddata,
+       data: datastr,
        contentType: 'application/json',
        success:function(){
         alert("保存成功！");
@@ -134,123 +234,14 @@ onlineApp.controller('onlineController',function($scope,$http){
     }
   }
 
-  $scope.showrecord=function(){
-    //var record_content=$("#record_content");
-    changedisplay($("#record_content"),"block");
-    changedisplay($("#scanlist"),"block");
-    changedisplay($("#scanlistdiv"),"none");
-  }
-
-  $scope.showlist=function(){
-    changedisplay($("#scanlistdiv"),"block");
-    changedisplay($("#record_content"),"none");
-    changedisplay($("#scanlist"),"none");
-  }
-
- 
-
-  function changedisplay(elem,display){
+    function changedisplay(elem,display){
     elem.css("display",display);
   }
 
 });/*controller 结束*/
 
   $(function(){
-    /*function get_result_view_template()
-      {
-      return{
-              //dataType: "json",
-              pagination: true, //分页
-              pageList: [5, 10, 15],
-              pageSize:5,
-              height:450, 
-              search: true, //显示搜索框
-              columns: [
-                            {
-                               title: '编号',
-                                field: 'code',
-                                width:20,
-                                formatter:codeFormatter
-                            }, 
-                            {
-                               title: '生产线',
-                                field: 'productline',
-                                width:150
-                            }, 
-                            {
-                                title: '提交时间',
-                                field: 'submittime',
-                                align: 'center',
-                                width:80
-                               
-                            }, 
-                            {
-                                title: '审核状态',
-                                field: 'option1',
-                                align: 'center',
-                                width:60
-                            },
-                            {
-                                title: '操作状态',
-                                field: 'option2',
-                                align: 'center',
-                                width:60,
-                                formatter:operateFormatter,
-                                events:editEvents
-                            }
-                ]
-              }
-    }*/
-    /*var onlinelist_view = new MGeneralTableTool.MGeneralTable();
-    onlinelist_view.CreateTable('online_table',get_result_view_template(),"./index.php?r=result/load-result-items",{},true);*/
-    $("#online_table").bootstrapTable({
-              url:"/assets/testjson/data.json",
-              dataType: "json",
-              pagination: true, //分页
-              pageList: [5, 10, 15],
-              pageSize:5,
-              height:450, 
-              search: true, //显示搜索框
-              columns: [
-                            {
-                               title: '编号',
-                                field: 'code',
-                                width:20,
-                                formatter:codeFormatter
-                            }, 
-                            {
-                               title: '生产线',
-                                field: 'productline',
-                                width:150
-                            }, 
-                            {
-                                title: '提交时间',
-                                field: 'submittime',
-                                align: 'center',
-                                width:80
-                               
-                            }, 
-                            {
-                                title: '审核状态',
-                                field: 'option1',
-                                align: 'center',
-                                width:60
-                            },
-                            {
-                                title: '操作状态',
-                                field: 'option2',
-                                align: 'center',
-                                width:60,
-                                formatter:operateFormatter,
-                                events:editEvents
-                            }
-                ]
-
-    });
     
-    /*$(window).bind('beforeunload',function(){
-      return '您输入的内容尚未提交，确定离开此页面吗？';
-    });*/
 });
 function codeFormatter(value,row,index){
       return index+1;
