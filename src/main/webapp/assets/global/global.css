@@ -1,0 +1,13 @@
+#content{ width: 80%; margin: 0 auto;}
+#nav{ height:70px; background-color:#3C6DB3; width: 100%; margin-top: -10px; padding: 0;}
+ul li{ list-style: none; line-height: 70px; float: left;}
+.navstyle a{color: #fff; display: inline-block;  font-size: 16px; padding:0 10px; text-decoration: none;width: 100px; text-align: center;}
+.navstyle a:hover{color: #fff; background: #CCCCFF; text-decoration: none; border-radius: 8px;}
+.logintest{ margin-top: 20px; margin-right: 30px;}
+.logintest a:hover{ border-radius: 0; background: none;}
+.small_input{ width: 80px;}
+._hidden{display: none;}
+.table_width{ width: 100px;}
+#tablelist,#newinput{ margin-bottom: -35px;}
+#scanlistdiv,#scanlist{ margin-top: 35px;}
+#footer{ height: 85px; padding: 10px 0;}
