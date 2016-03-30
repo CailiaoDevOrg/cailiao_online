@@ -1,6 +1,6 @@
 .adownload{ display: inline-block; padding: 5px 15px; border: 1px solid #ddd;}
 .production{ padding-left: 20px; height:50px;}
-.energy input,.waste_gas input,.clinker input{ width: 80px; height: 34px; padding: 6px 12px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px;}
+.energy input,.waste_gas input,.clinker input{ width: 95px; height: 34px; padding: 6px 12px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px;}
 #denitrification input{ width:auto; height: auto; padding: 0; border: none;}
 #denitrification .checkbox{ margin-right: 10px;}
 .box td,.box th{text-align: center;}

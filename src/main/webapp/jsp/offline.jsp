@@ -19,33 +19,19 @@
 	 	 <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.min.css">
 	 	 <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-table.min.css">
 	 	 <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-table.css">
-	 	 <link rel="stylesheet" type="text/css" href="/assets/fillin/css/record.css">
-	 	 <link href="/assets/home/main.css" rel="stylesheet" media="screen, print">
-	 	 <link rel="stylesheet" type="text/css" href="/assets/inquire/css/tab.css">
-		<!--  <link href="/static/css/patternfly.min.css" rel="stylesheet" media="screen, print"> -->
-		  
-	 	 <style type="text/css">
-	 	 	#content{ width: 80%; margin: 0 auto;}
-	 	 	#nav{ height:70px; background-color:#3C6DB3; width: 100%; margin-top: -10px; padding: 0;}
-	 	 	ul li{ list-style: none; line-height: 70px; float: left;}
-	 	 	.navstyle a{color: #fff; display: inline-block;  font-size: 16px; padding:0 10px; text-decoration: none;width: 100px; text-align: center;}
-	 	 	.navstyle a:hover{color: #fff; background: #CCCCFF; text-decoration: none; border-radius: 8px;}
-	 	 	.logintest{ margin-top: 20px; margin-right: 30px;}
-	 	 	.logintest a:hover{ border-radius: 0; background: none;}
-	 	 	.small_input{ width: 80px;}
-	 	 </style>
+	 	 <link rel="stylesheet" type="text/css" href="/assets/global/global.css">
 	</head>    
 	<body ng-controller="offlineController">
 		<div id="nav" >
 		    <ul class="navstyle">
-		       <li class="active"><a href="/jsp/home.jsp">首页</a></li>
+		       <li><a href="/jsp/home/index.jsp">首页</a></li>
 		       <li><a href="/jsp/online.jsp">在线填写</a></li>
-		       <li><a href="/jsp/offline.jsp">下载填写</a></li>
-		       <li><a href="/jsp/upload.jsp">上传文档</a></li>
-		       <li><a href="/jsp/inquiredata.jsp">查询</a></li>
+		       <li><a href="/jsp/offline.jsp">下载模板</a></li>
+		       <li><a href="/jsp/upload.jsp">上传问卷</a></li>
 		       <div class="pull-right logintest"><a href="/jsp/login.jsp">登录</a></div>
+		       <div id="message"></div>
 		    </ul>
-	    </div>
+		</div>
 	    <div id="content">
 			<div id="offline" style="margin-top:15px;" class="col-md-12">
 				<div id="down_doc">

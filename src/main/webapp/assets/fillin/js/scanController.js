@@ -30,16 +30,25 @@ scanApp.controller('scanController',function($scope,$http,$location){
 				$scope.shengliaomo=test.majorEquipmentPart.shengliaomoList;
 		}	
 	});
- changedisplay($("#record_content"),"block");
+ 	changedisplay($("#record_content"),"block");
+ 	
 
   function changedisplay(elem,display){
     elem.css("display",display);
   }
 
+  $("#preprint").click(function(){
+   		if(window.location.pathname=="/jsp/scan.html"){
+   			window.location.href="./print.html";
+   		}else{
+   			$("#content").printArea();
+   		}
+ 		//
+ 		//window.location.href="./print.html";
+ 	})
+
 });/*controller 结束*/
 
-  $(function(){
-   
-});
+
 
             

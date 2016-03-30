@@ -36,8 +36,8 @@
     <body ng-controller="scanController">
         <div id="nav" >
           <ul class="navstyle">
-             <li class="active"><a href="/jsp/home.jsp">首页</a></li>
-             <li><a href="/jsp/online.jsp">在线填写</a></li>
+             <li ><a href="/jsp/home/index.jsp">首页</a></li>
+             <li class="active"><a href="/jsp/online.jsp">在线填写</a></li>
              <li><a href="/jsp/offline.jsp">下载填写</a></li>
              <li><a href="/jsp/upload.jsp">上传文档</a></li>
              <li><a href="/jsp/inquiredata.jsp">查询</a></li>
@@ -54,7 +54,6 @@
                           <div class="row mainrow">
                             <h1 class="online_h1">水泥调查信息简表</h1>
                             <!--form表单开始-->
-                           
                               <div class="pre_set form-inline">
                                 <div class="form-group">
                                   <label for="pre_set_year">年份<span style="color:red">*</span></label>
@@ -62,15 +61,15 @@
                                 </div>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="form-group">
                                   <label for="pre_set_tons">吨位<span style="color:red">*</span></label>
-                                  <input type="text" id="pre_set_tons" ng-model="tons" class="small_input" >
+                                  <span id="pre_set_tons" class="form-control">{{tons}}</span>
                                 </div>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="form-group">
                                   <label for="product_company_name">水泥厂名称<span style="color:red">*</span></label>
-                                  <input type="text" id="product_company_name" ng-model="productCompanyName" >
+                                  <span id="product_company_name">{{productCompanyName}}</span>
                                 </div>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class="form-group">
                                   <label for="product_line_name">生产线名称<span style="color:red">*</span></label>
-                                  <input type="text" id="product_line_name" ng-model="productLineName" >
+                                  <span id="product_line_name">{{productLineName}}</span>
                                 </div>
                               </div>
                               <!--年份和吨位预设置结束-->
@@ -382,16 +381,20 @@
                                             </div><!-- /.box-body -->
                                     </div>
                                </div>
-                              <!--主要设备结束-->                            
+                              <!--主要设备结束-->  
+
                           </div>
                         </section><!-- /.content -->
                 </div><!-- /.content-wrapper -->
             </div>
+             <input type="button" value="预览" class="btn btn-success btn-lg" id="preprint">  
         </div>
+       
         <div class="footer"></div>
         <script type="text/javascript" src="/assets/jquery/jquery.min.js"></script>
          <script type="text/javascript" src="/assets/angularjs/angular.min.js"></script>
         <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/fillin/js/jquery.PrintArea.js"></script>
         <script type="text/javascript" src="/assets/fillin/js/scanController.js"></script>     
          <script type="text/javascript" src="/assets/global/table_common.js"></script>
          

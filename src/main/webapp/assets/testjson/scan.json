@@ -15,6 +15,18 @@
                             {
                                 "name": "cementStone2",
                                 "wtonsPerYear": 33.3
+                            },
+                            {
+                                "name": "cementStone3",
+                                "wtonsPerYear": 34.3
+                            },
+                            {
+                                "name": "cementStone4",
+                                "wtonsPerYear": 33.3
+                            },
+                            {
+                                "name": "cementStone5",
+                                "wtonsPerYear": 33.3
                             }
                         ]
                     },

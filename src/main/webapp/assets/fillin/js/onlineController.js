@@ -1,11 +1,11 @@
 var onlineApp=angular.module('onlineApp',[]);
-var id='';
+var id='1';
 onlineApp.controller('onlineController',function($scope,$http,$location){
   $("#record_content").css("display","none");
   changedisplay($("#scanlist"),"none");
   changedisplay($("#scanlistdiv"),"block");
   var myUrl = $location.absUrl();
-  id=myUrl.split("?")[1].split("=")[1];
+ // id=myUrl.split("?")[1].split("=")[1];
   var shengliaomoIndex=0;//生料磨索引
   var shuinimoIndex=0;//水泥磨索引
    url=$location.absUrl();  //获得url
@@ -120,6 +120,13 @@ onlineApp.controller('onlineController',function($scope,$http,$location){
         };
 
         data=angular.toJson(data);
+        var jsonContent={"clinkerPart":"111","cementPart":"222"};
+        jsonContent=angular.toJson(jsonContent);
+        /*if (data==null) {
+          jsonContent='';
+        }else{
+          jsonContent.push(data);
+        };*/
         var datastr={
           "id":"",
         "questionnaireTemplateId":1,
@@ -127,21 +134,23 @@ onlineApp.controller('onlineController',function($scope,$http,$location){
         "tons":tons,
         "productCompanyName":productCompanyName,
         "productLineName":productLineName,
-        "jsonContent":data
+        //"jsonContent":jsonContent
         };
       datastr=angular.toJson(datastr);
-      console.log(datastr);
+      //var testdata=angular.fromJson(datastr);*/
+      //console.log(jsonContent);
+     // console.log(datastr);
       return datastr;
     }
 
     /*初始化隐藏项*/
 	$scope.submitform=function(){
     $(window).unbind('beforeunload');//解除绑定的提醒
-      var datastr=generateData();
+      var senddata=generateData();
       $.ajax({
     	 url: '/q/commitQuestionnaireContent.html',
     	 type: 'post',
-    	 data: datastr,
+    	 data: senddata,
     	 contentType: 'application/json',
        success:function(){
         alert("提交成功！");
@@ -217,60 +226,58 @@ onlineApp.controller('onlineController',function($scope,$http,$location){
 });/*controller 结束*/
 
   $(function(){
-    var data={
-    "retCode": 200,
-    "retDesc": "SUCCESS",
-    "body": {
-        "questionnaireContentList": [
-            {
-                "id": 1,
-                "questionnaireTemplateId": 2,
-                "cementFactoryId": "xxxs水泥厂",
-                "productionLine": "xxx生产线",
-                "modifyTime": "",
-                //时间戳
-                "lastModifyTime": "",
-                //时间戳
-                "jsonContent": "",
-                //这就是之前你保存的数据里面的那个jsonContent
-                "status": 2,
-                "rejectReason": "通过"
-            },
-            {
-                "id": 2,
-                "questionnaireTemplateId": 2,
-                "cementFactoryId": "xxxs水泥厂",
-                "productionLine": "xxx生产线",
-                "modifyTime": "",
-                //时间戳
-                "lastModifyTime": "",
-                //时间戳
-                "jsonContent": "",
-                //这就是之前你保存的数据里面的那个jsonContent
-                "status": 1,
-                "rejectReason": "通过"
-            },
-            {
-                "id": 4,
-                "questionnaireTemplateId": 4,
-                "cementFactoryId": "xxxs水泥厂",
-                "productionLine": "xxx生产线",
-                "modifyTime": "",
-                //时间戳
-                "lastModifyTime": "",
-                //时间戳
-                "jsonContent": "",
-                //这就是之前你保存的数据里面的那个jsonContent
-                "status": 3,
-                "rejectReason": "通过"
-            }
-            
-        ]
-    }
-};
-
-
-    $("#online_table").bootstrapTable({
+      var data=
+      {
+        "retCode": 200,
+        "retDesc": "SUCCESS",
+        "body": {
+            "questionnaireContentList": [
+                {
+                    "id": 1,
+                    "questionnaireTemplateId": 2,
+                    "cementFactoryId": "红星水泥厂",
+                    "productionLine": "第一生产线",
+                    "modifyTime": "",
+                    //时间戳
+                    "lastModifyTime": "",
+                    //时间戳
+                    "jsonContent": "",
+                    //这就是之前你保存的数据里面的那个jsonContent
+                    "status": 2,
+                    "rejectReason": "通过"
+                },
+                {
+                    "id": 2,
+                    "questionnaireTemplateId": 2,
+                    "cementFactoryId": "葛洲坝水泥厂",
+                    "productionLine": "第一生产线",
+                    "modifyTime": "",
+                    //时间戳
+                    "lastModifyTime": "",
+                    //时间戳
+                    "jsonContent": "",
+                    //这就是之前你保存的数据里面的那个jsonContent
+                    "status": 1,
+                    "rejectReason": "通过"
+                },
+                {
+                    "id": 4,
+                    "questionnaireTemplateId": 4,
+                    "cementFactoryId": "红狮水泥厂",
+                    "productionLine": "第一生产线",
+                    "modifyTime": "",
+                    //时间戳
+                    "lastModifyTime": "",
+                    //时间戳
+                    "jsonContent": "",
+                    //这就是之前你保存的数据里面的那个jsonContent
+                    "status": 3,
+                    "rejectReason": "通过"
+                }  
+            ]
+          }
+      };
+      $("#online_table").bootstrapTable({
               //url:"/assets/testjson/data.json",
               dataType: "json",
               pagination: true, //分页
@@ -285,7 +292,7 @@ onlineApp.controller('onlineController',function($scope,$http,$location){
                             {
                                title: '编号',
                                 field: 'code',
-                                width:20,
+                                width:30,
                                 formatter:codeFormatter
                             }, 
                             {
@@ -321,7 +328,6 @@ onlineApp.controller('onlineController',function($scope,$http,$location){
                                 events:editEvents
                             }
                 ]
-
     });
     
     /*$(window).bind('beforeunload',function(){
