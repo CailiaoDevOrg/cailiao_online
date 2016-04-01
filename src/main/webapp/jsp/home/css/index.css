@@ -67,7 +67,7 @@ a:hover{text-decoration:underline;}
 	width: 100%;
 	height: 40px;
 	z-index: 10;
-	background-color:#516db5;
+	background-color:#0078D7;
 	background-repeat: repeat-x;
 }
 /*主导航条列表*/
@@ -267,7 +267,7 @@ a:hover{text-decoration:underline;}
 }
 
 /*页脚区域*/
-.footer{height:80px;padding-top:30px;border-top:1px solid #e3e3e3;text-align:center;line-height:24px;font-family:Verdana;color:#898989;}
+.footer{height:80px;padding-top:30px;border-top:1px solid #e3e3e3;text-align:center;line-height:24px;font-family:Verdana;color:#0078D7;}
 .contmsg{width:40px;height:37px;position:fixed;bottom:0;right:20px;background:url(../img/home/msg_bg.gif) no-repeat;cursor:pointer;text-decoration:none;line-height:18px;_position:absolute;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));}
 .msgtxt{display:none;border:1px solid #e1e1e1;width:120px;padding:5px 8px;position:absolute;bottom:40px;right:0;}
 
@@ -1120,7 +1120,7 @@ overflow:hidden
 	width:100%;
 	height:auto;
 	text-align:center;
-	background:#516db5;
+	background:#0078D7;
 	color:#fff;
 	padding-bottom:10px;
 	font-family:"微软雅黑"
