@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN" ng-app="scotchApp">
 	<head>
+	    <base href="<%=basePath%>"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
@@ -16,15 +17,15 @@
 		<!-- 项目logo -->
 		<!-- <link rel="icon" href="../../favicon.ico"> -->
 		<title>我国水泥工业环境状况调查信息共享平台</title>
-	 	 <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.min.css">
-	 	 <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-table.min.css">
-	 	 <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-table.css">
-	 	 <link rel="stylesheet" type="text/css" href="/assets/fillin/css/record.css">
-	 	 <link href="/assets/home/main.css" rel="stylesheet" media="screen, print">
-	 	 <link rel="stylesheet" type="text/css" href="/assets/inquire/css/tab.css">
+	 	 <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
+	 	 <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap-table.min.css">
+	 	 <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap-table.css">
+	 	 <link rel="stylesheet" type="text/css" href="assets/fillin/css/record.css">
+	 	 <link href="assets/home/main.css" rel="stylesheet" media="screen, print">
+	 	 <link rel="stylesheet" type="text/css" href="assets/inquire/css/tab.css">
 		<!--  <link href="/static/css/patternfly.min.css" rel="stylesheet" media="screen, print"> -->
-		<link rel="stylesheet" type="text/css" href="/assets/global/global.css">
-		<link rel="stylesheet" type="text/css" href="/assets/Cikonss/cikonss.css">
+		<link rel="stylesheet" type="text/css" href="assets/global/global.css">
+		<link rel="stylesheet" type="text/css" href="assets/Cikonss/cikonss.css">
 	</head>
 	<body ng-controller="mainController">
 		<div id="nav">

@@ -1,16 +1,20 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html;charset=utf-8" %>
+<%  
+    String path = request.getContextPath();  
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";  
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<base href="<%=basePath%>"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
 <title>我国水泥工业环境状况调查</title>
 <meta name="author" content="智能lab"></meta>
 <meta name="keywords" content="我国水泥工业环境状况调查"></meta>
 <meta name="description" content="我国水泥工业环境状况调查"></meta>
-<link href="css/index.css" type="text/css" rel="stylesheet"></link>
-<link rel="shortcut icon" href="lo.ico"></link>
-<script type="text/javascript" src="./js/jquery.min.js"></script>
-<script type="text/javascript" src="./js/imgSlide.js"></script>
+<link href="jsp/home/css/index.css" type="text/css" rel="stylesheet"></link>
+<script type="text/javascript" src="jsp/home/js/jquery.min.js"></script>
+<script type="text/javascript" src="jsp/home/js/imgSlide.js"></script>
 </head>
 <body>
     <a name="gotop"></a>
@@ -18,7 +22,7 @@
     		<div class="boxall" style="background-color:rgb(247,247,247);">
             	<h1 class="logo">
             		<a href="">
-            			<img src="img/logo/logo-lg.png" width="600" height="90" />
+            			<img src="jsp/home/img/logo/logo-lg.png" width="600" height="90" />
             		</a>
             	</h1>
     			   <div class="tel"></div>
@@ -27,10 +31,10 @@
     		<ul class="nav">
     		   <div class="topbox">
               <li><a href="#">首　页</a></li>
-              <li><a href="/jsp/online.jsp">数据库平台</a></li>
-             	<li><a href="/jsp/online.jsp">问卷调查</a></li>
+              <li><a href="jsp/online.jsp">数据库平台</a></li>
+             	<li><a href="jsp/online.jsp">问卷调查</a></li>
              	<li><a href="#">项目简介</a></li>
-             	<li><a href="/jsp/login.jsp">进入系统</a></li>
+             	<li><a href="jsp/login.jsp">进入系统</a></li>
     			</div>
     		</ul>
         <!--菜单导航结束-->
@@ -44,19 +48,19 @@
         <!--主体内容区顶大图呈现开始-->
         <div class="H_banner_imgs" id="ADNAV">
       	    <a class="active slideimg" href="" target="_blank" style="display: block;">
-      	    	<img src="img/home/img1.JPG" width="620" height="305" />
+      	    	<img src="jsp/home/img/home/img1.JPG" width="620" height="305" />
       	    </a>
       	    <a class="active slideimg" href="" target="_blank" style="display: none;">
-      	    	<img src="img/home/img2.JPG" width="620" height="305" />
+      	    	<img src="jsp/home/img/home/img2.JPG" width="620" height="305" />
       	    </a>
       	    <a class="active slideimg" href="" target="_blank" style="display: none;">
-      	    	<img src="img/home/img3.JPG" width="620" height="305" />
+      	    	<img src="jsp/home/img/home/img3.JPG" width="620" height="305" />
       	    </a>
       	    <a class="active slideimg" href="" target="_blank" style="display: none;">
-      	    	<img src="img/home/img4.jpg" width="620" height="305" />
+      	    	<img src="jsp/home/img/home/img4.jpg" width="620" height="305" />
       	    </a>
       	    <a class="active slideimg" href="" target="_blank" style="display: none;">
-      	    	<img src="img/home/img5.jpg" width="620" height="305" />
+      	    	<img src="jsp/home/img/home/img5.jpg" width="620" height="305" />
       	    </a>
               <p class="showp">
               	<i class="imgindex hover">1</i>
@@ -75,7 +79,7 @@
             <div class="newslistbydt">
                 <ul class="centerdynomic">	
                   <li>
-                    <span><a href="/jsp/online.jsp" style="color:;font-weight:;">我国水泥工业信息简表v3.0</a></span>
+                    <span><a href="jsp/online.jsp" style="color:;font-weight:;">我国水泥工业信息简表v3.0</a></span>
                     <span class="right">&nbsp; &nbsp;16-03-01</span>
                   </li>
                   <li>
@@ -98,7 +102,7 @@
             <ul>	
               <li> 
                 <a href="">
-                  <img src="img/home/e.jpg" alt="中国水泥工业环境状况数据库及信息共享平台" width="320px" height="290px"/>
+                  <img src="jsp/home/img/home/e.jpg" alt="中国水泥工业环境状况数据库及信息共享平台" width="320px" height="290px"/>
                 </a>
               </li>
             </ul>
@@ -112,7 +116,7 @@
         <div class="newslist">
            <ul>	
               <li style="border:1px solid #eee; width:320px; height:290px; overflow:hidden;"> 
-                <img src="img/home/help.jpg" width="318px" height="290px" />
+                <img src="jsp/home/img/home/help.jpg" width="318px" height="290px" />
               </li>
            </ul>
         </div>
@@ -125,7 +129,7 @@
         <div class="newslist">
           <ul>	
             <li> 
-            <img src="img/home/factory.jpg" width="320px" height="290px" />
+            <img src="jsp/home/img/home/factory.jpg" width="320px" height="290px" />
             </li>
           </ul>    
         </div>
@@ -149,7 +153,7 @@
     <!--footer Start-->
   </div>
   <div class="footer">
-    <p><img src="img/logo/logos.png" /></p>
+    <p><img src="jsp/home/img/logo/logos.png" /></p>
     <p>2014 《我国水泥工业环境状况调查》科技基础性工作专题网站</p>
     <p><strong>项目编号：2014FY110900</strong></p>
     <p>Copyright <span style="font-family:Arial, Helvetica, sans-serif">©</span><span ></span>  All Rights Reserved  </p>

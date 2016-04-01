@@ -14,7 +14,7 @@
   .reg-slogan h1{margin:auto; line-height: 50px;}
 </style>
 </head>
-<body ng-app="loginApp" style="background:url('/assets/login/css/banner_01_repeat.png') repeat-x;">
+<body ng-app="loginApp" style="background:#0072C6">
   <div class="wrap">
       <form class="form-horizontal" id="login" name="login" ng-controller="loginController" novalidate>
          <div class="reg-slogan"><h1>登录</h1></div>
