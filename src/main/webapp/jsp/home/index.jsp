@@ -36,7 +36,7 @@
 				<li><a href="#">相关下载</a></li>
 				<li><a href="#">项目简介</a></li>
 				<li><a href="#">支持</a></li>
-				<li><a href="jsp/login.jsp">后台管理系统</a></li>
+				<li><a href="http://localhost:7878">后台管理系统</a></li>
 			</div>
 		</ul>
 		<!--菜单导航结束-->
