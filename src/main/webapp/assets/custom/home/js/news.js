@@ -12,7 +12,7 @@
             	    var $news = $('.centerdynomic').empty();
                     var newsList = data.body.newsList;
                     for (var i = 0, len = newsList.length; i < len; i++) {
-                    	var item = '<li>\
+                    	var item = '<li title="' + newsList[i].content + '">\
                     		            <span><a href="' + newsList[i].url + '" style="color:; font-weight:;" target="_blank">' + newsList[i].title + '</a></span>\
                     		            <span class="right">&nbsp; &nbsp;' + $$.formatTime(newsList[i].publishedTime) + '</span>\
                     		        </li>';
