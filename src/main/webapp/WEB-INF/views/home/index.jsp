@@ -159,6 +159,7 @@
 	<!--footer End  -->
 	<script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="assets/custom/home/js/imgSlide.js"></script>
+    <script type="text/javascript" src="assets/custom/util/time.js"></script>
     <script type="text/javascript" src="assets/custom/home/js/news.js"></script>
 </body>
 </html>

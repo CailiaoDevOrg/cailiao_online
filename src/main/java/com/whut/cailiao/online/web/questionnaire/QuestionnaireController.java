@@ -1,8 +1,11 @@
 package com.whut.cailiao.online.web.questionnaire;
 
 import com.whut.cailiao.api.commons.ApiResponse;
+import com.whut.cailiao.api.commons.ApiResponseCode;
 import com.whut.cailiao.api.model.questionnaire.QuestionnaireContent;
+import com.whut.cailiao.api.model.questionnaire.QuestionnaireTemplate;
 import com.whut.cailiao.api.service.questionnaire.QuestionnaireService;
+import com.whut.cailiao.api.service.questionnaire.QuestionnaireTemplateService;
 import com.whut.cailiao.online.web.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,11 +15,26 @@ import org.springframework.web.bind.annotation.*;
  * Created by niuyang on 16/2/23.
  */
 @Controller
-@RequestMapping("/q")
+@RequestMapping("/wj")
 public class QuestionnaireController extends BaseController {
 
     @Autowired
     private QuestionnaireService questionnaireService;
+
+    @Autowired
+    private QuestionnaireTemplateService questionnaireTemplateService;
+
+    @RequestMapping(value = "/{wjtId}.html", method = RequestMethod.GET)
+    public String navigateToWJPage(@PathVariable int wjtId) {
+        ApiResponse response = this.questionnaireTemplateService.getQuestionnaireTemplate(wjtId);
+        if (response.getRetCode() == ApiResponseCode.SUCCESS) {
+            QuestionnaireTemplate questionnaireTemplate = (QuestionnaireTemplate) response.getData("questionnaireTemplate");
+            if (questionnaireTemplate != null) {
+                return questionnaireTemplate.getTemplateUrl();
+            }
+        }
+        return "home/index";
+    }
 
     /**
      * 已经测试

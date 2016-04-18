@@ -1,4 +1,4 @@
-(function($) {
+(function($, $$) {
 	
 	$(function() {
 		
@@ -13,8 +13,8 @@
                     var newsList = data.body.newsList;
                     for (var i = 0, len = newsList.length; i < len; i++) {
                     	var item = '<li>\
-                    		            <span><a href="' + newsList[i].url + '" style="color:; font-weight:;">' + newsList[i].title + '</a></span>\
-                    		            <span class="right">&nbsp; &nbsp;' + newsList[i].publishedTime + '</span>\
+                    		            <span><a href="' + newsList[i].url + '" style="color:; font-weight:;" target="_blank">' + newsList[i].title + '</a></span>\
+                    		            <span class="right">&nbsp; &nbsp;' + $$.formatTime(newsList[i].publishedTime) + '</span>\
                     		        </li>';
                     	$news.append(item);
                     	// alert(newsList[i]);
@@ -29,4 +29,4 @@
         });
 	});
 	
-})(jQuery);
+})(jQuery, timeFormat);

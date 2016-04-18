@@ -16,6 +16,8 @@
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
     <dubbo:reference id="questionnaireService" interface="com.whut.cailiao.api.service.questionnaire.QuestionnaireService" />
     
+    <dubbo:reference id="questionnaireTemplateService" interface="com.whut.cailiao.api.service.questionnaire.QuestionnaireTemplateService" />
+    
     <dubbo:reference id="newsService" interface="com.whut.cailiao.api.service.news.NewsService"/>
 
 </beans>
