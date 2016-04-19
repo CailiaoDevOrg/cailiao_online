@@ -1,6 +1,20 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
+<%  
+    String path = request.getContextPath();  
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";  
+%>
 <!DOCTYPE html>
 <html>
+<head>
+    <base href="<%=basePath%>" />
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap-table.css">
+	<link rel="stylesheet" type="text/css" href="assets/fillin/css/record.css">
+	<link href="assets/home/main.css" rel="stylesheet" media="screen, print">
+	<link rel="stylesheet" type="text/css" href="assets/inquire/css/tab.css">
+	<link rel="stylesheet" type="text/css" href="assets/global/global.css">
+</head>
 <body>
 <div id="inquiredata">
 	<div id="tab">
